@@ -1,0 +1,22 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class App {
+	public static void main(String[] args) {
+		List<String> animals = new ArrayList<String>();
+		
+		animals.add("tiger");
+		animals.add("elephant");
+		animals.add("cat");
+		animals.add("lion");
+		animals.add("snake");
+		animals.add("mongoose");
+		
+		Collections.sort(animals); // sorts the list in alphabetical order
+		
+		for (String animal : animals) {
+			System.out.println(animal);
+		}
+	}
+}

@@ -1,0 +1,102 @@
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.LinkedHashSet;
+
+class Person {
+	private int id;
+	private String name;
+	
+	public Person(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	
+	public String toString() {
+		return "(ID is: " + id + "; name is : " + name + ")";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return id == other.id && Objects.equals(name, other.name);
+	}
+	
+	
+}
+public class App {
+	public static void main(String[] args) {
+		Person p1 = new Person(0, "Bob");
+		Person p2 = new Person(1, "Sue");
+		Person p3 = new Person(2, "Mike");
+		Person p4 = new Person(1, "Sue");
+		
+//		Map<String, Integer> map = new HashMap<String, Integer>();
+		Map<String, Integer> map = new LinkedHashMap<String, Integer>();
+		
+		map.put("one", 1);
+		map.put("two", 2);
+		map.put("three", 3);
+		map.put("one", 1);
+		
+		// Output:
+		/*
+		 * one : 1 
+		 * two : 2 
+		 * three : 3
+		 */
+		for (String key : map.keySet()) {
+			System.out.println(key + " : " + map.get(key));
+		}
+		
+		Set<String> set = new LinkedHashSet<String>();
+		
+		set.add("dog");
+		set.add("cat");
+		set.add("mouse");
+		set.add("cat");
+		
+		System.out.println(set); // [dog, cat, mouse]
+		
+		Map<Person, Integer> customObjectMap = new LinkedHashMap<Person, Integer>();
+		
+		customObjectMap.put(p1, 1);
+		customObjectMap.put(p2, 2);
+		customObjectMap.put(p3, 3);
+		customObjectMap.put(p4, 1);
+		
+		/*
+		 * Output: 
+		 * (ID is: 0; name is : Bob): 1 
+		 * (ID is: 1; name is : Sue): 2 
+		 * (ID is: 2; name is : Mike): 3 
+		 * (ID is: 1; name is : Sue): 1     // In this case, the custom object is repeated, even though it's
+		 * a duplicate object. To resolve this issue, override the hashCode() and the equals method in the class
+		 */
+		for (Person key : customObjectMap.keySet()) {
+			System.out.println(key + ": " + customObjectMap.get(key));
+		}
+		
+		Set<Person> customObjectSet = new LinkedHashSet<Person>();
+		
+		customObjectSet.add(p1);
+		customObjectSet.add(p2);
+		customObjectSet.add(p3);
+		customObjectSet.add(p4);
+		
+		// Here, the custom object (ID is: 1; name is : Sue) is repeated, when it's supposed to be ignored.
+		System.out.println(customObjectSet); // [0: Bob, 1: Sue, 2: Mike, 1: Sue]
+	}
+}

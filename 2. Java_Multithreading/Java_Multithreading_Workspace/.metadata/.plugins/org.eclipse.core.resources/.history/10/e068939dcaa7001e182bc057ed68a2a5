@@ -1,0 +1,17 @@
+
+public class Runner {
+	
+	// NOTE: A Re-entrant lock is kind of an alternative to using the synchronized keyword
+	
+	public void firstThread() throws InterruptedException {
+		
+	}
+	
+	public void secondThread() throws InterruptedException {
+		
+	}
+	
+	public void finished() {
+		// This method is run after the two threads, i.e. firstThread and secondThread finish
+	}
+}

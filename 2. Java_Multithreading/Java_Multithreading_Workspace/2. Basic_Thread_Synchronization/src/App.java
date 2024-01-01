@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+class Processor extends Thread {
+	
+	// volatile is used to prevent threads from caching variables when they are 
+	// not used within that thread.
+	private volatile boolean running = true;
+	
+	@Override
+	public void run() {
+		while (running) {
+			System.out.println("Hello");
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException exception) {
+				exception.printStackTrace();
+			}
+		}
+	}
+	
+	public void shutDown() {
+		running = false;
+	}
+}
+/* Basic thread synchronization
+ * Two problems that you can encounter:
+ * 1. Data being cached
+ * 2. Thread interleaving
+ * */
+public class App {
+	public static void main(String[] args) {
+		// Code that runs in a different thread
+		Processor processor1 = new Processor();
+		processor1.start();
+		
+		// The code below runs in the main thread
+		System.out.println("Press return to stop ...");
+		Scanner scanner = new Scanner(System.in);
+		scanner.nextLine();
+		
+		processor1.shutDown();
+		scanner.close();
+		
+		/*
+		 * Now, since both the processor1 thread and the main thread are accessing the
+		 * same variable, i.e. running, there are chances that on some systems, the value of 
+		 * 'running' will be cached and the thread - processor1 will never notice that the value 
+		 * of running changed even if the shutDown method was called by the main thread to change the value of running.
+		 * So the while loop will take the value of running as true, thereby resulting in an infinite loop. To 
+		 * avoid this situation, we can use the volatile keyword when declaring the variable - running
+		 */		
+		
+	}
+}

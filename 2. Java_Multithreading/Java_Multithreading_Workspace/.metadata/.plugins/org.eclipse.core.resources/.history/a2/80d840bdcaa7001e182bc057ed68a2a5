@@ -1,0 +1,23 @@
+
+public class Runner {
+	
+	// NOTE: A Re-entrant lock is kind of an alternative to using the synchronized keyword
+	private int count = 0;
+	
+	private void increment() {
+		for (int index = 0; index < 1e5; index++) {
+			count++;
+		}
+	}
+	public void firstThread() throws InterruptedException {
+		increment();
+	}
+	
+	public void secondThread() throws InterruptedException {
+		increment();
+	}
+	
+	public void finished() {
+		// This method is run after the two threads, i.e. firstThread and secondThread finish
+	}
+}

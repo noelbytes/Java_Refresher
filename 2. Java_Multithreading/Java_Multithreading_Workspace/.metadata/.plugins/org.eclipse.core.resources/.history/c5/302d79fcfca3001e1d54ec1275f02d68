@@ -1,0 +1,28 @@
+
+class Runner extends Thread {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		for (int index = 0; index < 10; index++) {
+			System.out.println("Hello " + index);
+			
+			try {
+			Thread.sleep(100); // sleep ppauses your program for a specified number of milliseconds
+			} catch (InterruptedException exception) {
+				exception.printStackTrace();
+			}
+			}
+	}
+	
+}
+/*Thread is kind of like a separate operating system process which can run concurrently 
+ * with other threads.
+ * Two ways for starting threads:
+ * 1. Extend the thread class
+*/
+public class App {
+	public static void main(String[] args) {
+		
+	}
+}

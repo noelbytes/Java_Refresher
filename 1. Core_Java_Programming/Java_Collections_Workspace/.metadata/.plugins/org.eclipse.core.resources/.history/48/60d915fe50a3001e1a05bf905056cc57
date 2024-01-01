@@ -1,0 +1,10 @@
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+
+public class App {
+	public static void main(String[] args) {
+		// (head (front of the queue)) <- oooooooooooooooooooooooooooo <-(tail (end of the queue)) FIFO (first in, first out)
+		Queue<Integer> queue1 = new ArrayBlockingQueue<Integer>();
+		
+	}
+}

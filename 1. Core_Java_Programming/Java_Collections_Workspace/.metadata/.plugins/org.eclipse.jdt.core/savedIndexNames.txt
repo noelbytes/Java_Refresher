@@ -1,0 +1,14 @@
+INDEX VERSION 1.132+/home/noelbytes/Code_Snippets/Yorbit/1. Java_Refresher_Week_1/1. Core_Java_Programming/Java_Collections_Workspace/.metadata/.plugins/org.eclipse.jdt.core
+3245135383.index
+3230905585.index
+2949097923.index
+3711774728.index
+3395731693.index
+3685724430.index
+1113129290.index
+3354422774.index
+1086964263.index
+4159061598.index
+1865797976.index
+2636117068.index
+1326582604.index

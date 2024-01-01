@@ -1,0 +1,28 @@
+import java.util.List;
+import java.util.LinkedList;
+
+public class Processor {
+	
+	private List<Integer> list = new LinkedList<Integer>();
+	private final int LIMIT = 10;
+	
+	public void produce() throws InterruptedException {
+		// the producer thread will add items to the linkedList
+		
+		int value = 0;
+		
+		while (true) {
+			list.add(value);
+		}
+	}
+	
+	public void consume() throws InterruptedException {
+		// the consumer thread will process items from the LinkedList
+	
+		while (true) {
+			System.out.println("List size is : " + list.size());
+			int value = list.removeFirst();
+		}
+	}
+	
+}

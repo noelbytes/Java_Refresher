@@ -1,0 +1,23 @@
+
+class Processor implements Runnable {
+	
+	private int id;
+	
+	public Processor(int id) {
+		this.id = id;
+	}
+	
+	@Override
+	public void run() {
+		System.out.println("Starting : " + id);
+		
+		System.out.println("Completed : " + id);
+	}
+	
+}
+
+public class App {
+	public static void main(String[] args) {
+		
+	}
+}

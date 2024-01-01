@@ -1,0 +1,6 @@
+
+public class App {
+	public static void main(String[] args) {
+		// (head (front of the queue)) <- oooooooooooooooooooooooooooo <-(tail (end of the queue)) FIFO (first in, first out)
+	}
+}

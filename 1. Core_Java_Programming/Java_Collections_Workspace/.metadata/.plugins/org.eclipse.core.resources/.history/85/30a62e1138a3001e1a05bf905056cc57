@@ -1,0 +1,135 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+// NOTE: Use Comparable on a thing that you want to compare your class to, which is in this case, 
+// other objects of the same class
+class Person implements Comparable<Person> {
+	private String name;
+	
+	public Person(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public String toString() {
+		return name;
+	}
+
+	// To add your objects to a set, you need to define the hashCode and the equals methods
+	// Source --> Generate hashCode and equals
+	@Override
+	public int hashCode() {
+		return Objects.hash(name);
+	}
+
+	// equals will return true only if the names are equal
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return Objects.equals(name, other.name);
+	}
+
+	// NOTE: After implementing the equals and the hashCode method, you will be able to add your object to 
+	// a Set, but you will not be able to add it to a TreeSet, unless you fix the default implementation of 
+	// compareTo
+	@Override
+	public int compareTo(Person person) {
+		// TODO Auto-generated method stub
+		// compareTo works exactly like the compare method of the Comparator interface
+//		return this.name.compareTo(person.name);
+		
+		// To sort in the reverse alphabetical order
+		// return -this.name.compareTo(person.name);
+		
+		// The approach below will break the TreeSet
+		// Output from the TreeSet:
+		/*
+		 * Joe 
+		 * Mike 
+		 * Clare 
+		 * Juliet
+		 * 
+		 * The actual output is supposed to be
+		 * Joe 
+		 * Sue
+		 * Mike
+		 * Clare
+		 * Juliet
+		 * 
+		 * The value Sue is missing because the length of Joe is equal to the length of Sue,
+		 * so there is a conflict between the notion of equality returned by the equals method and the notion of equality 
+		 * returned by the compareTo method. Thus the behavior of objects in a TreeSet of that to a TreeMap are quite strange
+		 * 
+		 * What's actually happening here?
+		 * The TreeSet first goes to the compareTo method, and it finds out that Joe and Sue are equal in length, 
+		 * so 0 will be returned. Since the TreeSet, like the TreeMap contains only unique elements, it treats the 
+		 * element as the same element, therefore only one of them will be added to the Set / TreeSet
+		 * 
+		 * How do you deal with this?
+		 * replace return 0 in the else block with this.name.compareTo(person.name)
+		 */
+		int length1 = name.length();
+		int length2 = person.name.length();
+		
+		if (length1 > length2) {
+			return 1;
+		} else if (length1 < length2) {
+			return -1;
+		} else {
+			// if length1 == length2
+			return this.name.compareTo(person.name); // this will return 0 only when the two strings are equal, and if they are
+			// not equal, then the code in the if and the if else block will be executed
+		}
+	}
+}
+
+public class App {
+	public static void main(String[] args) {
+		List<Person> list = new ArrayList<Person>();
+		
+		// Set<String> set = new TreeSet<String>(); // TreeSets store the elements in natural order
+		// TreeMaps store the keys in natural order
+		
+		// We can also use SortedSets since TreeMaps store the elements in the natural order
+		SortedSet<Person> set = new TreeSet<Person>();
+		
+		addElements(list);
+		addElements(set);
+		
+		// Sort the list in the natural order
+		// Collections.sort(list); // because the Person object doesn't have a natural order
+		// you won't be able to call Collections.sort on it. To fix this, make the Person class
+		// implement the Comparable interface
+		Collections.sort(list);
+		
+		showElements(list);
+		System.out.println();
+		showElements(set);
+	}
+	
+	// NOTE: The collection interface is a super interface of list and set
+	private static void addElements(Collection<Person> collection) {
+		collection.add(new Person("Joe"));
+		collection.add(new Person("Sue"));
+		collection.add(new Person("Juliet"));
+		collection.add(new Person("Clare"));
+		collection.add(new Person("Mike"));
+	}
+	
+	private static void showElements(Collection<Person> collection) {
+		for (Person element : collection) {
+			System.out.println(element);
+		}
+	}
+}

@@ -1,0 +1,88 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class Worker {
+
+	private Random random = new Random();
+
+	/*
+	 * Implementation of creating two separate locks and synchronize the two locks
+	 * separately
+	 */	
+	
+	private List<Integer> list1 = new ArrayList<Integer>();
+	private List<Integer> list2 = new ArrayList<Integer>();
+
+	/* NOTE: Declaring both the methods as synchronized will take about 4000ms, which is twice the time that's expected, 
+	 * since the second thread will have to wait until the intrinsic lock of Worker is released for stageOne, and the same 
+	 * intrinsic lock for worker is released for stageTwo. 
+	 * To make a thread access the second method, i.e. stageTwo while the first method i.e. stageOne is 
+	 * being used by another thread, we can create two separate locks and synchronize the two locks separately
+	*/
+	
+	public synchronized void stageOne() {
+		try {
+			Thread.sleep(1);
+		} catch (InterruptedException exception) {
+			exception.printStackTrace();
+		}
+
+		list1.add(random.nextInt(100));
+	}
+
+	public synchronized void stageTwo() {
+		try {
+			Thread.sleep(1);
+		} catch (InterruptedException exception) {
+			exception.printStackTrace();
+		}
+
+		list2.add(random.nextInt(100));
+	}
+
+	public void process() {
+		for (int index = 0; index < 1000; index++) {
+			stageOne();
+			stageTwo();
+		}
+	}
+
+	public void main() {
+		System.out.println("Starting ...");
+
+		long start = System.currentTimeMillis();
+
+		// process();
+		Thread thread1 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				process();
+			}
+		});
+
+		// thread1.start();
+		
+		Thread thread2 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				process();
+			}
+		});
+
+		thread1.start();
+		thread2.start();
+
+		try {
+			thread1.join(); // wait for the thread to finish
+			thread2.join();
+		} catch (InterruptedException exception) {
+			exception.printStackTrace();
+		}
+
+		long end = System.currentTimeMillis();
+
+		System.out.println("Time taken : " + (end - start));
+		System.out.println("List1 : " + list1.size() + "; List2 : " + list2.size());
+	}
+}

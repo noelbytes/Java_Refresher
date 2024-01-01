@@ -1,0 +1,31 @@
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class Runner {
+
+	// NOTE: A Re-entrant lock is kind of an alternative to using the synchronized
+	// keyword
+	private int count = 0;
+	private Lock lock = new ReentrantLock(); // this means that once the lock is acquired by a thread / once the thread
+												// has locked the lock, it can lock it again if it wants to, and the lock just keeps count of how many times it's been locked, and you'll have to unlock it by the same number of times
+
+	private void increment() {
+		for (int index = 0; index < 1e5; index++) {
+			count++;
+		}
+	}
+
+	public void firstThread() throws InterruptedException {
+		increment();
+	}
+
+	public void secondThread() throws InterruptedException {
+		increment();
+	}
+
+	public void finished() {
+		// This method is run after the two threads, i.e. firstThread and secondThread
+		// finish
+		System.out.println("Count is : " + count);
+	}
+}

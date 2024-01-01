@@ -1,0 +1,31 @@
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+public class App {
+	public static void main(String[] args) {
+		List<String> animals = new LinkedList<String>();
+		
+		animals.add("fox");
+		animals.add("cat");
+		animals.add("dog");
+		animals.add("rabbit");
+		
+		// Iterator is a template type, so include the type in <> to avoid any errors 
+		// In this case, we have strings in our list. So the type will be String
+		Iterator<String> iterator = animals.iterator();
+		// NOTE: A lot of java collections implement the Iterable interface. 
+		// the method iterator is the only method under iterable and it returns the Iterator<T> type
+		String animalIterator = iterator.next(); // when you call next(), it makes the iterator move to the next item,
+		// and return it at the same time. Initially, the iterator will be pointing before the first item in your list
+		
+		System.out.println(animalIterator);
+		
+		System.out.println();
+		
+		// Modern iteration, Java 5 and later
+		for (String animal : animals) {
+			System.out.println(animal);
+		}
+	}
+}

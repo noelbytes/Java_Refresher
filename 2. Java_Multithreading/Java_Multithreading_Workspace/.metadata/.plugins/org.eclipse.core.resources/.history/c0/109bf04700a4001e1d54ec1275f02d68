@@ -1,0 +1,26 @@
+
+class Processor extends Thread {
+	
+	@Override
+	public void run() {
+		while (true) {
+			System.out.println("Hello");
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException exception) {
+				exception.printStackTrace();
+			}
+		}
+	}
+	
+}
+/* Basic thread synchronization
+ * Two problems that you can encounter:
+ * 1. Data being cached
+ * 2. Thread interleaving
+ * */
+public class App {
+	public static void main(String[] args) {
+		
+	}
+}

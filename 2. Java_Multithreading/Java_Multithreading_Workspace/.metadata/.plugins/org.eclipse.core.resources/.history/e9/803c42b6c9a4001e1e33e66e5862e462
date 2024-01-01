@@ -1,0 +1,35 @@
+import java.util.concurrent.CountDownLatch;
+
+class Processor implements Runnable {
+	
+	private CountDownLatch latch;
+	
+	public Processor(CountDownLatch latch) {
+		this.latch = latch;
+	}
+	
+	@Override
+	public void run() {
+		System.out.println("Started.");
+		
+		try {
+		Thread.sleep(3000); // 3 seconds
+		} catch (InterruptedException exception) {
+			exception.printStackTrace();
+		}
+		
+		latch.countDown();
+	}
+}
+public class App {
+	public static void main(String[] args) {
+		/* CountDownLatch class is thread safe - this means that you can access from multiple threads 
+		 * without worrying about thread synchronization.
+		 * 
+		 * A CountDownLatch lets you count down from a number you specify, and it lets one or more threads 
+		 * wait until the latch reaches a count of zero, and when it finally equals zero, then one or more threads waiting 
+		 * on the latch can then proceed and carry on. 
+		*/
+		CountDownLatch latch = new CountDownLatch(3);
+	}
+}

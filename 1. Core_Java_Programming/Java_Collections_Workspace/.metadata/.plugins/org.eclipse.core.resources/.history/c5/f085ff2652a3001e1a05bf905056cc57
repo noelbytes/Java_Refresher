@@ -1,0 +1,47 @@
+import java.util.NoSuchElementException;
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+
+public class App {
+	public static void main(String[] args) {
+		// (head (front of the queue)) <- oooooooooooooooooooooooooooo <-(tail (end of
+		// the queue)) FIFO (first in, first out)
+
+		// Unlike LinkedLists, ArrayBlockingQueue has a fixed size to it
+		Queue<Integer> queue1 = new ArrayBlockingQueue<Integer>(3);
+
+		System.out.println("Head of the queue is : " + queue1.element());
+		
+		queue1.add(10);
+		queue1.add(20);
+		queue1.add(30);
+
+		// To see the head of the queue
+		System.out.println("Head of the queue is : " + queue1.element());
+		
+		try {
+			queue1.add(40); // Throws an IllegalStateException, since we have added more than 3 elements
+							// (this is a runtime exception)
+		} catch (IllegalStateException exception) {
+			System.out.println("Tried to add too many items to the queue");
+		}
+
+		// To see what's in your queue
+		for (Integer value : queue1) {
+			System.out.println("Queue value : " + value);
+		}
+
+		// Removes the head of the queue, and returns it
+//		Integer value;
+
+//		value = queue1.remove();
+		System.out.println("Removed from queue : " + queue1.remove());
+		System.out.println("Removed from queue : " + queue1.remove());
+		System.out.println("Removed from queue : " + queue1.remove());
+		try {
+			System.out.println("Removed from queue : " + queue1.remove());
+		} catch (NoSuchElementException exception) {
+			System.out.println("Tried to remove too many items from the queue");
+		}
+	}
+}

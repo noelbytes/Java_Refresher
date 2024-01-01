@@ -1,0 +1,41 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class App {
+	public static void main(String[] args) {
+		List<String> animals = new ArrayList<String>();
+		
+		animals.add("tiger");
+		animals.add("elephant");
+		animals.add("cat");
+		animals.add("lion");
+		animals.add("snake");
+		animals.add("mongoose");
+		
+		Collections.sort(animals); // sorts the list in alphabetical order
+		
+		for (String animal : animals) {
+			System.out.println(animal);
+		}
+		
+		// Sorting a list of integers / doubles
+		List<Integer> numbers = new ArrayList<Integer>();
+		
+		numbers.add(3);
+		numbers.add(36);
+		numbers.add(73);
+		numbers.add(40);
+		numbers.add(1);
+		
+		Collections.sort(numbers); // Sorts in numerical order
+		
+		for (Integer number : numbers) {
+			System.out.println(number);
+		}
+		
+		// NOTE: The order in which the collections class sorts is called the natural order
+		// If you want to sort other than using the natural order, you will have to create a class 
+		// that implements the comparator interface
+	}
+}

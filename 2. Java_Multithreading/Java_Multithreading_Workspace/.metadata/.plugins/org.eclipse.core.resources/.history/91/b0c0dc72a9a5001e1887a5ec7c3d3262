@@ -1,0 +1,17 @@
+import java.util.List;
+import java.util.LinkedList;
+
+public class Processor {
+	
+	private List<Integer> list = new LinkedList<Integer>();
+	
+	
+	public void produce() throws InterruptedException {
+		
+	}
+	
+	public void consume() throws InterruptedException {
+		
+	}
+	
+}

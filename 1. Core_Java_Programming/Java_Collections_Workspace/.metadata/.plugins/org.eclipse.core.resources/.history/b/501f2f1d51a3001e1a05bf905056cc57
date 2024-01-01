@@ -1,0 +1,16 @@
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+
+public class App {
+	public static void main(String[] args) {
+		// (head (front of the queue)) <- oooooooooooooooooooooooooooo <-(tail (end of the queue)) FIFO (first in, first out)
+		
+		// Unlike LinkedLists, ArrayBlockingQueue has a fixed size to it
+		Queue<Integer> queue1 = new ArrayBlockingQueue<Integer>(3);
+		
+		queue1.add(10);
+		queue1.add(20);
+		queue1.add(30);
+		queue1.add(40);
+	}
+}

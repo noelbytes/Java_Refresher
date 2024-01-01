@@ -1,0 +1,48 @@
+
+public class App {
+
+	private int count = 0;
+
+	public static void main(String[] args) {
+
+		App app = new App();
+		app.doWork();
+	}
+
+	public void doWork() {
+		Thread thread1 = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				for (int index = 0; index < 10000; index++) {
+					count++;
+				}
+			}
+		});
+
+		Thread thread2 = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				for (int index = 0; index < 10000; index++) {
+					count++;
+				}
+			}
+		});
+
+		thread1.start();
+		thread2.start();
+
+		try {
+			// To wait for the threads to finish before displaying the value of count in the
+			// main method, use the join() method
+			thread1.join(); // join won't return until thread1 is finished
+			thread2.join(); // the same thing applies to thread2
+		} catch (InterruptedException exception) {
+			exception.printStackTrace();
+		}
+		System.out.println("Count is : " + count); // count will possess a different value every time it is run, since
+													// it is being accessed by both thread1 and thread2 and the main
+													// thread, and all of them are executed in parallel
+	}
+}

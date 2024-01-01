@@ -1,0 +1,23 @@
+
+public class Processor {
+
+	public void produce() throws InterruptedException {
+		synchronized (this) {
+			// the this keyword will point to the processor object.
+			// you can pass any object into synchronized to establish an intrinsic lock
+			System.out.println("Producer thread running ....");
+			wait(); 
+			
+			/* NOTE: Every object in Java has a wait() method because it's a method of the 
+			 * Object class, that is the ancestor of all objects in Java
+			 * Two types of wait:
+			 * 1. wait() - this could cause your thread to wait indefinitely if you are not careful
+			 * 2. wait(2000) - wait with a timeout
+		    */
+		}
+	}
+	
+	public void consume() throws InterruptedException {
+		Thread.sleep(2000); // 2 seconds
+	}
+}

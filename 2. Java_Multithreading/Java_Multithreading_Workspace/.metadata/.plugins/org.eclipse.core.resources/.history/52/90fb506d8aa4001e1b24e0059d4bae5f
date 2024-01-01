@@ -1,0 +1,47 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+class Processor implements Runnable {
+
+	private int id;
+
+	public Processor(int id) {
+		this.id = id;
+	}
+
+	@Override
+	public void run() {
+		System.out.println("Starting : " + id);
+		try {
+			Thread.sleep(5000); // 5 seconds
+		} catch (InterruptedException exception) {
+			exception.printStackTrace();
+		}
+		System.out.println("Completed : " + id);
+	}
+
+}
+
+public class App {
+	public static void main(String[] args) {
+		
+		/* What is a thread pool?
+		 * A thread pool is more like having a number of workers in a factory, in this case, 2 of them,
+		 * and you've got a load of tasks that you want them to get through. For example, in this case, we'll 
+		 * say there are five tasks and you want each of these workers (threads) to process a task, and when this worker 
+		 * thread finishes processing this task, you want it to start on a new task.
+		 * 
+		 * So it's like giving those two factory workers a bunch of tasks and saying - Here, please work on these 
+		 * tasks one at a time, and when you finish one task, start on a new task. 
+		*/
+		ExecutorService executor = Executors.newFixedThreadPool(2);
+		
+		// To allot the tasks, submit the tasks to executor.
+		/* The ExecutorService will run it's own managerial thread that will handle 
+		 * parceling out these tasks that you're going to give to it. 
+		*/
+		for (int id = 0; id < 5; id++) {
+			executor.submit(new Processor(id));
+		}
+	}
+}

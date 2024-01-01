@@ -1,0 +1,22 @@
+package demo3;
+
+public class App {
+	public static void main(String[] args) {
+		// Using an anonymous class
+		Thread thread1 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				for (int index = 0; index < 10; index++) {
+					System.out.println("Hello " + index);
+
+					try {
+						Thread.sleep(100); // sleep ppauses your program for a specified number of milliseconds
+					} catch (InterruptedException exception) {
+						exception.printStackTrace();
+					}
+				}
+			}
+		});
+		thread1.start();
+	}
+}

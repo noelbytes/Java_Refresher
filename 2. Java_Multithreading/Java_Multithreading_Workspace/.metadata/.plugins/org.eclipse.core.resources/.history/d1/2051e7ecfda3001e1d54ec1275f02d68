@@ -1,0 +1,16 @@
+package demo2;
+
+class Runner implements Runnable {
+	
+	@Override
+	public void run() {
+		
+	}
+	
+}
+
+public class App {
+	public static void main(String[] args) {
+
+	}
+}

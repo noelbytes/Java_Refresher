@@ -1,0 +1,125 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class Worker {
+
+	private Random random = new Random();
+
+	/*
+	 * Implementation of creating two separate locks and synchronize the two locks
+	 * separately
+	 */
+	private Object lock1 = new Object();
+	private Object lock2 = new Object();
+
+	/* You may wonder why there weren't locks declared on the lists themselves?
+	 * It MAY work, but it's a good practice to declare separate lock objects, because otherwise 
+	 * you can give yourself a headache. For example, if list1 and list2 were numbers that you were
+	 * incrementing, and if you tried to lock on the actual numbers themselves, you'd never quite know 
+	 * if Java had optimized your variables to point to the same number beside behind the scenes if the value 
+	 * of the number was the same.
+	 * So the bottom line is, you can complicate things if you try to lock on the actual object that you want to 
+	 * write to, and it makes it a better practice to declare separate lock objects here to avoid any 
+	 * possible confusions.
+	 */
+	private List<Integer> list1 = new ArrayList<Integer>();
+	private List<Integer> list2 = new ArrayList<Integer>();
+
+	/*
+	 * NOTE: Declaring both the methods as synchronized will take about 4000ms,
+	 * which is twice the time that's expected, since the second thread will have to
+	 * wait until the intrinsic lock of Worker is released for stageOne, and the
+	 * same intrinsic lock for worker is released for stageTwo. To make a thread
+	 * access the second method, i.e. stageTwo while the first method i.e. stageOne
+	 * is being used by another thread, we can create two separate locks and
+	 * synchronize the two locks separately
+	 */
+
+	public /* synchronized */ void stageOne() {
+		/*
+		 * Now, since the method isn't synchronized, two threads can run the stageOne()
+		 * method at the same time, but if one thread's already entered this
+		 * synchronized code block, and the second thread will have to wait until it can
+		 * run the synchronized code block, it will have to wait until the first thread
+		 * has released this lock by exiting this code block.
+		 */
+		synchronized (list1) {
+			try {
+				Thread.sleep(1);
+			} catch (InterruptedException exception) {
+				exception.printStackTrace();
+			}
+
+			list1.add(random.nextInt(100));
+		}
+
+	}
+
+	public /* synchronized */ void stageTwo() {
+		/*
+		 * But since we are locking on two different objects, i.e. lock1 and lock2, one
+		 * thread can run the stuff in the synchronized block of stageOne, while the
+		 * second thread can run the stuff in the synchronized block of stageTwo, because to 
+		 * run the stuff declared under the synchronized block of stageOne, you will have to acquire the 
+		 * intrinsic lock of the lock1 object, and to run the stuff declared under the synchronized 
+		 * block of stage2, you will have to acquire the intrinsic lock of the lock2 object
+		 * 
+		 * NOTE: No two threads can run the same synchronized block at the same time
+		 */
+		synchronized (list2) {
+			try {
+				Thread.sleep(1);
+			} catch (InterruptedException exception) {
+				exception.printStackTrace();
+			}
+
+			list2.add(random.nextInt(100));
+		}
+	}
+
+	public void process() {
+		for (int index = 0; index < 1000; index++) {
+			stageOne();
+			stageTwo();
+		}
+	}
+
+	public void main() {
+		System.out.println("Starting ...");
+
+		long start = System.currentTimeMillis();
+
+		// process();
+		Thread thread1 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				process();
+			}
+		});
+
+		// thread1.start();
+
+		Thread thread2 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				process();
+			}
+		});
+
+		thread1.start();
+		thread2.start();
+
+		try {
+			thread1.join(); // wait for the thread to finish
+			thread2.join();
+		} catch (InterruptedException exception) {
+			exception.printStackTrace();
+		}
+
+		long end = System.currentTimeMillis();
+
+		System.out.println("Time taken : " + (end - start));
+		System.out.println("List1 : " + list1.size() + "; List2 : " + list2.size());
+	}
+}

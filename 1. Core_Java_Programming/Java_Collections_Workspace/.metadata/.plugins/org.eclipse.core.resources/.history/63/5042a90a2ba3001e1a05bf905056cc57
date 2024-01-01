@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public class App {
+	public static void main(String[] args) {
+		List<String> list = new ArrayList<String>();
+		
+		// Set<String> set = new TreeSet<String>(); // TreeSets store the elements in natural order
+		// TreeMaps store the keys in natural order
+		
+		// We can also use SortedSets since TreeMaps store the elements in the natural order
+		SortedSet<String> set = new TreeSet<String>();
+		
+		addElements(list);
+		addElements(set);
+		
+		// Sort the list in the natural order
+		Collections.sort(list);
+		
+		showElements(list);
+		System.out.println();
+		showElements(set);
+	}
+	
+	// NOTE: The collection interface is a super interface of list and set
+	private static void addElements(Collection<String> collection) {
+		collection.add("Joe");
+		collection.add("Sue");
+		collection.add("Juliet");
+		collection.add("Clare");
+		collection.add("Mike");
+	}
+	
+	private static void showElements(Collection<String> collection) {
+		for (String element : collection) {
+			System.out.println(element);
+		}
+	}
+}

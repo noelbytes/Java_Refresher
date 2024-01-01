@@ -1,0 +1,38 @@
+
+public class App {
+	
+	private int count = 0;
+	
+	public static void main(String[] args) {
+
+		App app = new App();
+		app.doWork();
+	}
+
+	public void doWork() {
+		Thread thread1 = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				for (int index = 0; index < 1e4; index++) {
+					count++;
+				}
+			}
+		});
+		
+		Thread thread2 = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				for (int index = 0; index < 1e4; index++) {
+					count++;
+				}
+			}
+		});
+		
+		thread1.start();
+		thread2.start();
+		
+		System.out.println("Count is : " + count);
+	}
+}

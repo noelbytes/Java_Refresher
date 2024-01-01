@@ -1,0 +1,51 @@
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+class Processor implements Runnable {
+	
+	private CountDownLatch latch; // you don't have to use the synchronized keyword here, since this is a thread safe class
+	
+	public Processor(CountDownLatch latch) {
+		this.latch = latch;
+	}
+	
+	@Override
+	public void run() {
+		System.out.println("Started.");
+		
+		try {
+		Thread.sleep(3000); // 3 seconds
+		} catch (InterruptedException exception) {
+			exception.printStackTrace();
+		}
+		
+		latch.countDown(); // the value specified in the main method, i.e. new CountDownLatch(3); will be 
+		// counted down by 1
+	}
+}
+public class App {
+	public static void main(String[] args) {
+		/* CountDownLatch class is thread safe - this means that you can access from multiple threads 
+		 * without worrying about thread synchronization.
+		 * 
+		 * A CountDownLatch lets you count down from a number you specify, and it lets one or more threads 
+		 * wait until the latch reaches a count of zero, and when it finally equals zero, then one or more threads waiting 
+		 * on the latch can then proceed and carry on. 
+		*/
+		CountDownLatch latch = new CountDownLatch(3);
+		
+		ExecutorService executor = Executors.newFixedThreadPool(3); // create 3 threads
+		
+		for (int processNumber = 0 ; processNumber < 3 ; processNumber++) {
+			executor.submit(new Processor(latch)); // each thread will get one Processor
+		}
+		
+		try {
+		latch.await(); // this will wait until the CountDownLatch has counted down to zero and you're not limited to only putting await() in the main program thread.
+		// You could put it in any number of threads
+		} catch (InterruptedException exception) {
+			exception.printStackTrace();
+		}
+	}
+}
