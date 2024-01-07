@@ -22,7 +22,7 @@ public class App {
 					try {
 						Thread.sleep(1);
 					} catch (InterruptedException exception) {
-						System.out.println("Interrupted!"); // this will also be printed on this console
+						System.out.println("Interrupted!"); // this will also be printed on this console, since thread1.interrupt() is being called
 						break;
 					}
 					
