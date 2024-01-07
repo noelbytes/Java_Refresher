@@ -26,7 +26,7 @@ class Processor extends Thread {
  * Two problems that you can encounter:
  * 1. Data being cached
  * 2. Thread interleaving
- * */
+*/
 public class App {
 	public static void main(String[] args) {
 		// Code that runs in a different thread
@@ -38,7 +38,7 @@ public class App {
 		Scanner scanner = new Scanner(System.in);
 		scanner.nextLine();
 		
-		processor1.shutDown();
+		processor1.shutDown(); // called in the main thread
 		scanner.close();
 		
 		/*

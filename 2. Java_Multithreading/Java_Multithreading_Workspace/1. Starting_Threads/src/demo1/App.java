@@ -9,7 +9,7 @@ class Runner extends Thread {
 			System.out.println("Hello " + index);
 
 			try {
-				Thread.sleep(100); // sleep ppauses your program for a specified number of milliseconds
+				Thread.sleep(100); // sleep pauses your program for a specified number of milliseconds
 			} catch (InterruptedException exception) {
 				exception.printStackTrace();
 			}
