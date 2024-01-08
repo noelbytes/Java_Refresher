@@ -75,4 +75,10 @@ public class Runner {
 
 /*
  * Advantages of using re-entrant locks instead of synchronized:
+ * 1. Fine-grained control: Re-entrant locks provide more flexibility and control over locking compared to synchronized.
+ * 2. Condition support: Re-entrant locks allow threads to wait for specific conditions, offering more advanced synchronization capabilities.
+ * 3. Interruptible locking: Re-entrant locks can be interrupted, providing better handling of thread interruptions.
+ * 4. Lock timeouts: Re-entrant locks allow specifying a maximum wait time for acquiring a lock, which helps prevent potential deadlocks.
+ * 5. Fairness: Re-entrant locks can be configured for fair locking, ensuring that threads are granted access in the order they requested it.
+ * 6. Multiple condition variables: Re-entrant locks support multiple condition variables, useful for handling different waiting conditions within the same critical section.
  */
