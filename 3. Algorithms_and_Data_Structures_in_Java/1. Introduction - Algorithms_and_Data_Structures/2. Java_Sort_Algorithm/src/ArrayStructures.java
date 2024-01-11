@@ -139,6 +139,7 @@ public class ArrayStructures {
 		// End of the first part
 
 		// Added for bubble sort
+		// The two if conditions below are used to print the indexes below a specific element in the array
 		if (index2 != -1) {
 			// Add the +2 to fix spacing
 			for (int index3 = 0; index3 < ((index2 * 5) + 2); index3++)
@@ -239,9 +240,9 @@ public class ArrayStructures {
 
 		newArray.generateRandomArray();
 
-//		newArray.printHorizontalArray(-1, -1);
+		newArray.printHorizontalArray(-1, -1);
 
-//		newArray.linearSearchForValue(10);
+		newArray.linearSearchForValue(10);
 
 //		newArray.bubbleSort();
 
@@ -249,6 +250,6 @@ public class ArrayStructures {
 
 //		newArray.selectionSort();
 		
-		newArray.insertionSort();
+//		newArray.insertionSort();
 	}
 }
