@@ -82,6 +82,32 @@ public class ArrayStructures {
 		return indexesWithValue;
 	}
 
+	// Binary search is quicker than linear search because all the values are
+	// sorted in ascending order. Once you get to a number that is larger than what
+	// you are looking for, stop the search. The binary search isn't going to work
+	// quite well when there are duplicate numbers, because it is only going to find
+	// the first match
+	public void binarySearchForValue(int value) {
+		int lowIndex = 0;
+		int highIndex = arraySize - 1;
+
+		while (lowIndex <= highIndex) {
+
+			int middleIndex = (highIndex + lowIndex) / 2;
+
+			if (theArray[middleIndex] < value)
+				lowIndex = middleIndex + 1;
+			else if (theArray[middleIndex] > value)
+				highIndex = middleIndex - 1;
+			else {
+				System.out.println("\n Found a match for " + value + " at index " + middleIndex);
+				lowIndex = highIndex + 1; // to break out of the while loop
+			}
+
+			printHorizontalArray(middleIndex, -1); // -1 is passed when you want to ignore a certain index
+		}
+	}
+
 	public void printHorizontalArray(int index1, int index2) {
 		for (int iteration = 0; iteration < 51; iteration++)
 			System.out.print("-");
@@ -134,19 +160,72 @@ public class ArrayStructures {
 	public void bubbleSort() {
 		// Bubble sort will sort everything from smallest to largest or largest to
 		// smallest by changing a certain fragment of code
-		
+
 		for (int index1 = arraySize - 1; index1 > 1; index1--) {
 			for (int index2 = 0; index2 < index1; index2++) {
-				if (theArray[index2] > theArray[index2 + 1]) {
+				if (theArray[index2] > theArray[index2 + 1]) { // for the ascending order
+//				if (theArray[index2] < theArray[index2 + 1]) { // for the descending order
 					swapValues(index2, index2 + 1);
-					
+
 					printHorizontalArray(index1, index2);
 				}
-				
+
 				printHorizontalArray(index1, index2);
 			}
 		}
 
+	}
+
+	// The selection sort algorithm is going to save a number in a minimum spot as
+	// it finds it, and then repeats searching through the entire array each time,
+	// to slowly put the whole entire array in order
+	public void selectionSort() {
+		for (int firstIndex = 0; firstIndex < arraySize; firstIndex++) {
+			int minimumIndex = firstIndex;
+
+			for (int secondIndex = firstIndex; secondIndex < arraySize; secondIndex++) {
+				if (theArray[minimumIndex] > theArray[secondIndex]) { // to sort in the ascending order
+//				if (theArray[minimumIndex] < theArray[secondIndex]) { // to sort in the descending order
+					minimumIndex = secondIndex;
+				}
+			}
+
+			swapValues(firstIndex, minimumIndex);
+
+			printHorizontalArray(firstIndex, -1);
+		}
+	}
+
+	/*
+	 * The insertion sort is normally the best of all the elementary sorts. However,
+	 * unlike the other sorts, at any one point in time, there is going to be a
+	 * group or a part of the array that is sorted - with the insertion sort, that
+	 * not going to be true, or atleast not definitely going to be true
+	 * 
+	 * Insertion sort basically searches through the array, finds the minimum, and
+	 * puts it precisely into place, skipping multiple different indexes
+	 */
+	public void insertionSort() {
+		for (int firstIndex = 1; firstIndex < arraySize; firstIndex++) {
+			
+			int secondIndex = firstIndex;
+			
+			int valueToInsert = theArray[firstIndex];
+			
+			while ((secondIndex > 0) && (theArray[secondIndex - 1] > valueToInsert)) {
+				theArray[secondIndex] = theArray[secondIndex - 1];
+				secondIndex--;
+				
+				printHorizontalArray(firstIndex, secondIndex);
+			}
+			
+			theArray[secondIndex] = valueToInsert;
+			
+			printHorizontalArray(firstIndex, secondIndex);
+			
+			System.out.println("\nArray[firstIndex] = " + theArray[firstIndex] + 
+					" Array[secondIndex] = " + theArray[secondIndex] + " valueToInsert = " + valueToInsert);
+		}
 	}
 
 	public void swapValues(int indexOne, int indexTwo) {
@@ -154,6 +233,7 @@ public class ArrayStructures {
 		theArray[indexOne] = theArray[indexTwo];
 		theArray[indexTwo] = temporaryVariable;
 	}
+
 	public static void main(String[] args) {
 		ArrayStructures newArray = new ArrayStructures();
 
@@ -162,7 +242,13 @@ public class ArrayStructures {
 //		newArray.printHorizontalArray(-1, -1);
 
 //		newArray.linearSearchForValue(10);
+
+//		newArray.bubbleSort();
+
+//		newArray.binarySearchForValue(11);
+
+//		newArray.selectionSort();
 		
-		newArray.bubbleSort();
+		newArray.insertionSort();
 	}
 }
