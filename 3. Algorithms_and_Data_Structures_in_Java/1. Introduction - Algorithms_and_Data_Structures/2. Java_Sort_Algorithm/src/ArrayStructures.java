@@ -142,14 +142,14 @@ public class ArrayStructures {
 		// The two if conditions below are used to print the indexes below a specific element in the array
 		if (index2 != -1) {
 			// Add the +2 to fix spacing
-			for (int index3 = 0; index3 < ((index2 * 5) + 2); index3++)
+			for (int iteration = 0; iteration < ((index2 * 5) + 2); iteration++)
 				System.out.print(" ");
 			System.out.print(index2);
 		}
 
 		if (index1 != -1) {
 			// Add the -1 to fix spacing
-			for (int index3 = 0; index3 < (5 * (index1 - index2) - 1); index3++)
+			for (int iteration = 0; iteration < (5 * (index1 - index2) - 1); iteration++)
 				System.out.print(" ");
 
 			System.out.print(index1);
@@ -159,19 +159,19 @@ public class ArrayStructures {
 	}
 
 	public void bubbleSort() {
-		// Bubble sort will sort everything from smallest to largest or largest to
-		// smallest by changing a certain fragment of code
+		// Bubble sort will sort everything from smallest to largest, or largest to
+		// smallest which is achieved by changing a certain fragment of code
 
-		for (int index1 = arraySize - 1; index1 > 1; index1--) {
-			for (int index2 = 0; index2 < index1; index2++) {
-				if (theArray[index2] > theArray[index2 + 1]) { // for the ascending order
+		for (int higherIndex = arraySize - 1; higherIndex > 1; higherIndex--) {
+			for (int lowerIndex = 0; lowerIndex < higherIndex; lowerIndex++) {
+				if (theArray[lowerIndex] > theArray[lowerIndex + 1]) { // for the ascending order
 //				if (theArray[index2] < theArray[index2 + 1]) { // for the descending order
-					swapValues(index2, index2 + 1);
+					swapValues(lowerIndex, lowerIndex + 1);
 
-					printHorizontalArray(index1, index2);
+					printHorizontalArray(higherIndex, lowerIndex);
 				}
 
-				printHorizontalArray(index1, index2);
+				printHorizontalArray(higherIndex, lowerIndex);
 			}
 		}
 
@@ -242,9 +242,9 @@ public class ArrayStructures {
 
 		newArray.printHorizontalArray(-1, -1);
 
-		newArray.linearSearchForValue(10);
+//		newArray.linearSearchForValue(10);
 
-//		newArray.bubbleSort();
+		newArray.bubbleSort();
 
 //		newArray.binarySearchForValue(11);
 
