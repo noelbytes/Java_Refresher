@@ -139,9 +139,12 @@ public class ArrayStructures {
 		// End of the first part
 
 		// Added for bubble sort
-		// The two if conditions below are used to print the indexes below a specific element in the array
+		// The two if conditions below are used to print the indexes below a specific
+		// element in the array
 		if (index2 != -1) {
 			// Add the +2 to fix spacing
+			// We are multiplying by 5 since printing a single element, for example | 17
+			// takes up 5 spaces
 			for (int iteration = 0; iteration < ((index2 * 5) + 2); iteration++)
 				System.out.print(" ");
 			System.out.print(index2);
@@ -208,24 +211,24 @@ public class ArrayStructures {
 	 */
 	public void insertionSort() {
 		for (int firstIndex = 1; firstIndex < arraySize; firstIndex++) {
-			
+
 			int secondIndex = firstIndex;
-			
+
 			int valueToInsert = theArray[firstIndex];
-			
+
 			while ((secondIndex > 0) && (theArray[secondIndex - 1] > valueToInsert)) {
 				theArray[secondIndex] = theArray[secondIndex - 1];
 				secondIndex--;
-				
+
 				printHorizontalArray(firstIndex, secondIndex);
 			}
-			
+
 			theArray[secondIndex] = valueToInsert;
-			
+
 			printHorizontalArray(firstIndex, secondIndex);
-			
-			System.out.println("\nArray[firstIndex] = " + theArray[firstIndex] + 
-					" Array[secondIndex] = " + theArray[secondIndex] + " valueToInsert = " + valueToInsert);
+
+			System.out.println("\nArray[firstIndex] = " + theArray[firstIndex] + " Array[secondIndex] = "
+					+ theArray[secondIndex] + " valueToInsert = " + valueToInsert);
 		}
 	}
 
@@ -249,7 +252,7 @@ public class ArrayStructures {
 //		newArray.binarySearchForValue(11);
 
 //		newArray.selectionSort();
-		
+
 //		newArray.insertionSort();
 	}
 }
