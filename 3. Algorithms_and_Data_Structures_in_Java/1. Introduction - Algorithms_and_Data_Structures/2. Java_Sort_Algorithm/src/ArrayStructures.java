@@ -202,8 +202,8 @@ public class ArrayStructures {
 
 	/*
 	 * The insertion sort is normally the best of all the elementary sorts. However,
-	 * unlike the other sorts, at any one point in time, there is going to be a
-	 * group or a part of the array that is sorted - with the insertion sort, that
+	 * unlike the other sorts in which at any one point in time where there is going to be a
+	 * group or a part of the array that is sorted. IN case of the insertion sort, that
 	 * not going to be true, or atleast not definitely going to be true
 	 * 
 	 * Insertion sort basically searches through the array, finds the minimum, and
@@ -247,12 +247,12 @@ public class ArrayStructures {
 
 //		newArray.linearSearchForValue(10);
 
-		newArray.bubbleSort();
+//		newArray.bubbleSort();
 
 //		newArray.binarySearchForValue(11);
 
 //		newArray.selectionSort();
 
-//		newArray.insertionSort();
+		newArray.insertionSort();
 	}
 }
