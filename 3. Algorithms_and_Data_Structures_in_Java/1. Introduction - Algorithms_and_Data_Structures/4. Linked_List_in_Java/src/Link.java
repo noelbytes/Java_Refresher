@@ -14,7 +14,7 @@ public class Link {
 	}
 
 	public void display() {
-		System.out.println(bookName + " : " + millionsSold + " ,000,000");
+		System.out.println(bookName + " : " + millionsSold + ",000,000");
 	}
 
 	@Override
@@ -23,7 +23,24 @@ public class Link {
 	}
 
 	public static void main(String[] args) {
+		LinkedList theLinkedList = new LinkedList();
 		
+		theLinkedList.insertFirstLink("Don Quixote", 500);
+		theLinkedList.insertFirstLink("A Tale of Two Cities", 200);
+		theLinkedList.insertFirstLink("The Lord of the Rings", 150);
+		theLinkedList.insertFirstLink("Harry Potter and the Sorcerer's Stone", 107);
+		
+//		theLinkedList.display();
+		
+		theLinkedList.removeFirst();
+		
+//		theLinkedList.display();
+		
+		System.out.println(theLinkedList.find("The Lord of the Rings").bookName + " was found");
+		
+		theLinkedList.removeLink("The Lord of the Rings");
+		
+		theLinkedList.display();
 	}
 }
 
