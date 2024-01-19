@@ -47,7 +47,7 @@ public class Link {
 class LinkedList {
 
 	public Link firstLink; // reference to the first link in the list, or the last link that was added to
-							// the LinkedList
+							// the LinkedList. It can also be called the HEAD of the LinkedList
 
 	LinkedList() {
 		firstLink = null;
