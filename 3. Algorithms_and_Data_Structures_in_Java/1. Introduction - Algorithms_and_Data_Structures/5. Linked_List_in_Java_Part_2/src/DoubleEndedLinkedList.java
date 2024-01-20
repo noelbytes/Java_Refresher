@@ -23,12 +23,51 @@ class Neighbor {
 
 class NeighborIterator {
 
+	Neighbor currentNeighbor;
+	Neighbor previousNeighbor;
+	
+	
+	DoubleEndedLinkedList theNeighbors;
+	
 	NeighborIterator(DoubleEndedLinkedList theNeighbors) {
-
+		this.theNeighbors = theNeighbors;
+		currentNeighbor = theNeighbors.firstLink;
+		previousNeighbor = theNeighbors.lastLink;
 	}
 
 	public boolean hasNext() {
+		if (currentNeighbor.next != null) {
+			return true;
+		}
+		
 		return false;
+	}
+	
+	public Neighbor next() {
+		if (hasNext()) {
+			previousNeighbor = currentNeighbor;
+			currentNeighbor = currentNeighbor.next;
+			
+			return currentNeighbor;
+		}
+		
+		return null;
+	}
+	
+	public void remove() {
+		if (previousNeighbor == null) { // check if we are at the beginning of our list
+			theNeighbors.firstLink = currentNeighbor.next;
+		} else {
+			previousNeighbor.next = currentNeighbor.next;
+			
+			// if we are at the end of the list
+			if (currentNeighbor.next == null) {
+				currentNeighbor = theNeighbors.firstLink;
+				previousNeighbor = null;
+			} else {
+				currentNeighbor = currentNeighbor.next;
+			}
+		}
 	}
 }
 
@@ -118,12 +157,36 @@ public class DoubleEndedLinkedList {
 	public static void main(String[] args) {
 		DoubleEndedLinkedList theLinkedList = new DoubleEndedLinkedList();
 
-		theLinkedList.insertInFirstPosition("Mark Evans", 7);
-		theLinkedList.insertInFirstPosition("Piers Polkiss", 9);
-		theLinkedList.insertInLastPosition("Doreen Figg", 6);
-		theLinkedList.insertInFirstPosition("Petunia Dursley", 4);
+//		theLinkedList.insertInFirstPosition("Mark Evans", 7);
+//		theLinkedList.insertInFirstPosition("Piers Polkiss", 9);
+//		theLinkedList.insertInLastPosition("Doreen Figg", 6);
+//		theLinkedList.insertInFirstPosition("Petunia Dursley", 4);
+		
+		theLinkedList.insertInOrder("Mark Evans", 7);
+		theLinkedList.insertInOrder("Piers Polkiss", 9);
+		theLinkedList.insertInOrder("Doreen Figg", 6);
+		theLinkedList.insertInOrder("Petunia Dursley", 4);
+		
+		theLinkedList.insertAfterKey("Allan Noel D'Souza", 10, 4);
+
 
 		theLinkedList.display();
+		
+		System.out.println("\n");
+		
+		NeighborIterator neighbors = new NeighborIterator(theLinkedList);
+		
+		neighbors.currentNeighbor.display();
+		
+		System.out.println(neighbors.hasNext());
+		
+		neighbors.next();
+		
+		neighbors.currentNeighbor.display();
+		
+		neighbors.remove(); // removes the current neighbor
+		
+		neighbors.currentNeighbor.display(); // currentNeighbor will now point to the next neighbor after the one that was removed in the list
 	}
 
 	public void display() {
