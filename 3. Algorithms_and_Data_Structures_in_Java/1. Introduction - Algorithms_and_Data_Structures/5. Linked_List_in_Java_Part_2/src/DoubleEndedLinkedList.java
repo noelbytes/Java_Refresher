@@ -43,6 +43,8 @@ public class DoubleEndedLinkedList {
 		if (isEmpty()) {
 			// if our linked list is empty
 			lastLink = theNewLink;
+		} else {
+			firstLink.previous = theNewLink;
 		}
 
 		theNewLink.next = firstLink;
@@ -57,23 +59,83 @@ public class DoubleEndedLinkedList {
 			firstLink = theNewLink;
 		} else {
 			lastLink.next = theNewLink;
+			theNewLink.previous = lastLink;
 		}
 		lastLink = theNewLink;
 	}
-	
+
 	public boolean isEmpty() {
 		return (firstLink == null);
 	}
 
-	/*
-	 * public boolean insertAfterKey(String homeOwnerName, int houseNumber, int key)
-	 * {
-	 * 
-	 * }
-	 */
+	public boolean insertAfterKey(String homeOwnerName, int houseNumber, int key) {
+		Neighbor theNewLink = new Neighbor(homeOwnerName, houseNumber);
+		Neighbor currentNeighbor = firstLink;
+
+		while (currentNeighbor.houseNumber != key) {
+			currentNeighbor = currentNeighbor.next;
+
+			if (currentNeighbor == null) { // if we get to the last neighbor without matching, exit out of the loop
+				return false;
+			}
+		}
+
+		if (currentNeighbor == lastLink) {
+			theNewLink.next = null; // since theNewLink will be at the end of the list
+			lastLink = theNewLink;
+		} else {
+			theNewLink.next = currentNeighbor.next;
+			currentNeighbor.next.previous = theNewLink; // access the node next to currentNeighbor and have the previous
+														// pointer of the next node point to the new node
+		}
+		
+		theNewLink.previous = currentNeighbor;
+		currentNeighbor.next = theNewLink;
+		return true;
+	}
+
+	public void insertInOrder(String homeOwnerName, int houseNumber) {
+		Neighbor theNewLink = new Neighbor(homeOwnerName, houseNumber);
+		
+		// hold the last neighbor searched, so that we'll be able to change it's value for next if we input a new neighbor
+		Neighbor previousNeighbor = null;
+		Neighbor currentNeighbor = firstLink;
+		
+		while (currentNeighbor != null && (houseNumber > currentNeighbor.houseNumber)) {
+			previousNeighbor = currentNeighbor;
+			currentNeighbor = currentNeighbor.next;
+		}
+		
+		if (previousNeighbor == null) {
+			firstLink = theNewLink;
+		} else {
+			previousNeighbor.next = theNewLink;
+		}
+		
+		theNewLink.next = currentNeighbor;
+	}
 	
 	public static void main(String[] args) {
 		DoubleEndedLinkedList theLinkedList = new DoubleEndedLinkedList();
-		
+
+		theLinkedList.insertInFirstPosition("Mark Evans", 7);
+		theLinkedList.insertInFirstPosition("Piers Polkiss", 9);
+		theLinkedList.insertInLastPosition("Doreen Figg", 6);
+		theLinkedList.insertInFirstPosition("Petunia Dursley", 4);
+
+		theLinkedList.display();
+	}
+
+	public void display() {
+		Neighbor theLink = firstLink; // HEAD node
+
+		while (theLink != null) {
+			theLink.display();
+			System.out.println("Next Link: " + theLink.next);
+			theLink = theLink.next;
+
+			System.out.println();
+		}
+
 	}
 }
