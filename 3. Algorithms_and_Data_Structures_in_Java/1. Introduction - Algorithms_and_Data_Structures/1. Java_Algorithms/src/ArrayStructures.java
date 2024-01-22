@@ -12,7 +12,7 @@ public class ArrayStructures {
 
 	public void generateRandomArray() {
 		for (int index = 0; index < arraySize; index++) {
-			theArray[index] = (int) (Math.random() * 10) + 10; // numbers between 10 and 19
+			theArray[index] = (int) (Math.random() * 10 /* Generate numbers between 0 to 9 */) + 10; // numbers between 10 and 19
 		}
 	}
 
