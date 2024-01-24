@@ -96,15 +96,17 @@ public class ArrayStructures {
 			int middleIndex = (highIndex + lowIndex) / 2;
 
 			if (theArray[middleIndex] < value)
-				lowIndex = middleIndex + 1;
+				lowIndex = middleIndex + 1; // search in the upper half of the array
 			else if (theArray[middleIndex] > value)
-				highIndex = middleIndex - 1;
+				highIndex = middleIndex - 1; // search in the lower half of the array
 			else {
 				System.out.println("\n Found a match for " + value + " at index " + middleIndex);
 				lowIndex = highIndex + 1; // to break out of the while loop
 			}
 
-			printHorizontalArray(middleIndex, -1); // -1 is passed when you want to ignore a certain index
+			printHorizontalArray(middleIndex, -1); // -1 is passed when you want to ignore a certain index. This will
+													// print out the current location of the middleIndex at the bottom
+													// of the array
 		}
 	}
 
@@ -202,9 +204,9 @@ public class ArrayStructures {
 
 	/*
 	 * The insertion sort is normally the best of all the elementary sorts. However,
-	 * unlike the other sorts in which at any one point in time where there is going to be a
-	 * group or a part of the array that is sorted. IN case of the insertion sort, that
-	 * not going to be true, or atleast not definitely going to be true
+	 * unlike the other sorts in which at any one point in time where there is going
+	 * to be a group or a part of the array that is sorted. IN case of the insertion
+	 * sort, that not going to be true, or atleast not definitely going to be true
 	 * 
 	 * Insertion sort basically searches through the array, finds the minimum, and
 	 * puts it precisely into place, skipping multiple different indexes
