@@ -253,8 +253,8 @@ public class ArrayStructures {
 
 //		newArray.binarySearchForValue(11);
 
-		newArray.selectionSort();
+//		newArray.selectionSort();
 
-//		newArray.insertionSort();
+		newArray.insertionSort();
 	}
 }
