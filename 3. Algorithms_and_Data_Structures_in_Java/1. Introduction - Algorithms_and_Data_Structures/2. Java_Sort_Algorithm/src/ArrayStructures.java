@@ -186,19 +186,19 @@ public class ArrayStructures {
 	// it finds it, and then repeats searching through the entire array each time,
 	// to slowly put the whole entire array in order
 	public void selectionSort() {
-		for (int firstIndex = 0; firstIndex < arraySize; firstIndex++) {
-			int minimumIndex = firstIndex;
+		for (int unsortedIndex = 0; unsortedIndex < arraySize; unsortedIndex++) {
+			int minimumIndex = unsortedIndex;
 
-			for (int secondIndex = firstIndex; secondIndex < arraySize; secondIndex++) {
-				if (theArray[minimumIndex] > theArray[secondIndex]) { // to sort in the ascending order
+			for (int index = unsortedIndex; index < arraySize; index++) {
+				if (theArray[minimumIndex] > theArray[index]) { // to sort in the ascending order
 //				if (theArray[minimumIndex] < theArray[secondIndex]) { // to sort in the descending order
-					minimumIndex = secondIndex;
+					minimumIndex = index;
 				}
 			}
 
-			swapValues(firstIndex, minimumIndex);
+			swapValues(unsortedIndex, minimumIndex);
 
-			printHorizontalArray(firstIndex, -1);
+			printHorizontalArray(unsortedIndex, -1);
 		}
 	}
 
