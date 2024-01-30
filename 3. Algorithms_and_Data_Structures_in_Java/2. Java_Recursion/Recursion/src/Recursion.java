@@ -17,7 +17,23 @@ public class Recursion {
 	public static void main(String[] args) {
 		Recursion recursionTool = new Recursion();
 		
-		recursionTool.calculateSquaresToPrint(6);
+		// recursionTool.calculateSquaresToPrint(6);
+		
+		System.out.println("Triangular Number : " + recursionTool.getTriangularNumber(6)); // 21 is the triangular number for 6
+	}
+	
+	// Calculate triangular numbers without using recursion
+	public int getTriangularNumber(int number) {
+		int triangularNumber = 0;
+		
+		// 3 + 2 + 1 = 6
+		
+		while (number > 0) {
+			triangularNumber = triangularNumber + number;
+			number--;
+		}
+		
+		return triangularNumber;
 	}
 	
 	// USED TO DEMONSTRATE TRIANGULAR NUMBERS -----------------------
