@@ -212,25 +212,25 @@ public class ArrayStructures {
 	 * puts it precisely into place, skipping multiple different indexes
 	 */
 	public void insertionSort() {
-		for (int firstIndex = 1; firstIndex < arraySize; firstIndex++) {
+		for (int firstUnsortedIndex = 1; firstUnsortedIndex < arraySize; firstUnsortedIndex++) {
 
-			int secondIndex = firstIndex;
+			int arrayIndex = firstUnsortedIndex; // used to traverse the array from right to left
 
-			int valueToInsert = theArray[firstIndex];
+			int valueToInsert = theArray[firstUnsortedIndex];
 
-			while ((secondIndex > 0) && (theArray[secondIndex - 1] > valueToInsert)) {
-				theArray[secondIndex] = theArray[secondIndex - 1];
-				secondIndex--;
+			while ((arrayIndex > 0) && (theArray[arrayIndex - 1] > valueToInsert)) {
+				theArray[arrayIndex] = theArray[arrayIndex - 1];
+				arrayIndex--;
 
-				printHorizontalArray(firstIndex, secondIndex);
+				printHorizontalArray(firstUnsortedIndex, arrayIndex);
 			}
 
-			theArray[secondIndex] = valueToInsert;
+			theArray[arrayIndex] = valueToInsert;
 
-			printHorizontalArray(firstIndex, secondIndex);
+			printHorizontalArray(firstUnsortedIndex, arrayIndex);
 
-			System.out.println("\nArray[firstIndex] = " + theArray[firstIndex] + " Array[secondIndex] = "
-					+ theArray[secondIndex] + " valueToInsert = " + valueToInsert);
+			System.out.println("\nArray[firstUnsortedIndex] = " + theArray[firstUnsortedIndex] + "; Array[arrayIndex] = "
+					+ theArray[arrayIndex] + "; valueToInsert = " + valueToInsert);
 		}
 	}
 
