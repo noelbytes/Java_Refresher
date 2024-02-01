@@ -4,8 +4,9 @@ public class TheQueue {
 	
 	private String[] queueArray;
 	private int queueSize;
-	private int front, rear /* end of the queue */, numberOfItems = 0;
+	private int front /* start of the queue (index 0) */, rear /* end of the queue */, numberOfItems = 0;
 	
+	/* Default access modifier / package-private */ 
 	TheQueue(int size) {
 		queueSize = size;
 		
