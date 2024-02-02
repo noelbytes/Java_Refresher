@@ -17,7 +17,7 @@ public class TheQueue {
 	
 	public void insert(String input) {
 		if (numberOfItems + 1 <= queueSize) {
-			queueArray[rear] = input;
+			queueArray[rear] = input; // insert items at the end of the queue
 			
 			rear++;
 			
@@ -117,9 +117,9 @@ public class TheQueue {
 		
 		// Number of spaces to put before the R
 		// Added -2 to fix spacing
-		int spacesBeforeRear = (2 * (3 * rear) - 1) - (spacesBeforeFront) - 2;
+		int spacesBeforeRear = (2 * (3 * rear) - 1) - (spacesBeforeFront) - 1;
 		
-		for (int iteration = 0; iteration < spacesBeforeRear; iteration++)
+		for (int iteration = 1; iteration < spacesBeforeRear; iteration++)
 			System.out.print(" ");
 		System.out.print("R");
 		
@@ -129,9 +129,9 @@ public class TheQueue {
 	public static void main(String[] args) {
 		TheQueue theQueue = new TheQueue(10);
 		
-//		theQueue.insert("10");
-//		theQueue.insert("15");
-//		theQueue.insert("11");
+		theQueue.insert("10");
+		theQueue.insert("15");
+		theQueue.insert("11");
 //		
 //		theQueue.displayTheQueue();
 //		
