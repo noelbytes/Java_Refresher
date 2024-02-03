@@ -47,7 +47,7 @@ public class TheQueue {
 		System.out.println("The first element is " + queueArray[front]);
 	}
 	
-	// Priority queue implementation - adds items from high to low as they are inputted
+	// Priority queue implementation - adds items from high to low as they are inputed
 	public void priorityInsert(String input) {
 		int index; 
 		
@@ -110,6 +110,7 @@ public class TheQueue {
 		
 		// Number of spaces to put before the F
 		int spacesBeforeFront = 3 * (2 * (front + 1) - 1);
+//		int spacesBeforeFront = (6 * front) + 3;
 		
 		for (int iteration = 1; iteration < spacesBeforeFront; iteration++)
 			System.out.print(" ");
@@ -118,6 +119,7 @@ public class TheQueue {
 		// Number of spaces to put before the R
 		// Added -2 to fix spacing
 		int spacesBeforeRear = (2 * (3 * rear) - 1) - (spacesBeforeFront) - 1;
+//		int spacesBeforeRear = (6 * rear) - spacesBeforeFront - 3;
 		
 		for (int iteration = 1; iteration < spacesBeforeRear; iteration++)
 			System.out.print(" ");
