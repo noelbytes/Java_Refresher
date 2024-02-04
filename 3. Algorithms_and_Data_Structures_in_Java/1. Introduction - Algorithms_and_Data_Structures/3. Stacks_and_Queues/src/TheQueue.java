@@ -131,9 +131,9 @@ public class TheQueue {
 	public static void main(String[] args) {
 		TheQueue theQueue = new TheQueue(10);
 		
-		theQueue.insert("10");
-		theQueue.insert("15");
-		theQueue.insert("11");
+//		theQueue.insert("10");
+//		theQueue.insert("15");
+//		theQueue.insert("11");
 //		
 //		theQueue.displayTheQueue();
 //		
