@@ -18,6 +18,12 @@ public class TheStack {
 	private int stackSize;
 	private int topOfStack = -1; // the stack is initially empty
 
+	TheStack(int size) {
+		stackSize = size;
+		stackArray = new String[size];
+		Arrays.fill(stackArray, "-1");
+	}
+	
 	public void push(String input) {
 		if (topOfStack + 1 < stackSize) {
 			topOfStack++;
@@ -105,12 +111,6 @@ public class TheStack {
 			System.out.print("-");
 		
 		System.out.println();
-	}
-
-	TheStack(int size) {
-		stackSize = size;
-		stackArray = new String[size];
-		Arrays.fill(stackArray, "-1");
 	}
 
 	public static void main(String[] args) {
