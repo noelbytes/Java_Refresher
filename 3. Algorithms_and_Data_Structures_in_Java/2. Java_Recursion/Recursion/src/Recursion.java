@@ -20,6 +20,8 @@ public class Recursion {
 		// recursionTool.calculateSquaresToPrint(6);
 		
 		System.out.println("Triangular Number : " + recursionTool.getTriangularNumber(6)); // 21 is the triangular number for 6
+	
+		System.out.println("Triangular Number : (Using recursion) = " + recursionTool.getTriangularNumberByRecursion(6));
 	}
 	
 	// Calculate triangular numbers without using recursion
@@ -34,6 +36,24 @@ public class Recursion {
 		}
 		
 		return triangularNumber;
+	}
+	
+	// Calculate triangular numbers using recursion
+	public int getTriangularNumberByRecursion(int number) {
+		
+		System.out.println("Method " + number);
+		
+		// Base case
+		if (number == 1) {
+			System.out.println("Returned 1");
+			return 1;
+		} else {
+			int result = number + getTriangularNumberByRecursion(number - 1);
+			System.out.print("Returned " + result);
+			System.out.println(" : " + number + " + getTN(" + number + " -1)");
+			
+			return result;
+		}
 	}
 	
 	// USED TO DEMONSTRATE TRIANGULAR NUMBERS -----------------------
