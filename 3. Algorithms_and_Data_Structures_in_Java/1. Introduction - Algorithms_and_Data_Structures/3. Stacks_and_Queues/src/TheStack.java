@@ -40,15 +40,18 @@ public class TheStack {
 
 	public String pop() {
 		if (topOfStack >= 0) {
+			String elementAtTheTop = stackArray[topOfStack];
 			displayTheStack();
 
-			System.out.println("POP " + stackArray[topOfStack] + " was removed from the stack\n");
+			System.out.println("POP " + elementAtTheTop + " was removed from the stack\n");
 
 			stackArray[topOfStack] = "-1"; // Done for display purposes. In memory, when you delete an item, it is still
 											// going to be there, however, it will have the value of -1 instead of the
 											// original value
 			
-			return stackArray[topOfStack--];
+//			return stackArray[topOfStack--];
+			topOfStack--;
+			return elementAtTheTop;
 		} else {
 			displayTheStack();
 			
