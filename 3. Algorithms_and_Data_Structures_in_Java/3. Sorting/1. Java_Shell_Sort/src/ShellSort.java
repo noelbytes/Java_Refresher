@@ -6,4 +6,11 @@
  * since we eliminate the need to shift many indexes in the array. */
 public class ShellSort {
 
+	ShellSort(int arraySize) {
+		
+	}
+	
+	public static void main(String[] args) {
+		ShellSort theSort = new ShellSort(10);
+	}
 }
