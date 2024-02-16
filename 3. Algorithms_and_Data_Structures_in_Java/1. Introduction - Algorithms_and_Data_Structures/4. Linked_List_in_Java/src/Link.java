@@ -70,8 +70,8 @@ class LinkedList {
 		// LinkedList (firstLink) --> Link (next) --> Link (next) --> Link (next) ....
 		// Think of LinkedList (firstLink) like a pointer that points to the first element in the list
 		Link newLink = new Link(bookName, millionsSold);
-		newLink.next = firstLink; // null
-		firstLink = newLink;
+		newLink.next = firstLink; // Since the node is inserted at the beginning of the list, assign the value of next pointer in the new node to the previous first node
+		firstLink = newLink; // the first node is now the most recent node that was inserted into the LinkedList
 	}
 	
 	/* How is a value removed?
@@ -79,6 +79,7 @@ class LinkedList {
 	 * That's it */
 	
 	public Link removeFirst() {
+		// this method will remove the first element from the LinkedList
 		Link linkReference = firstLink; // reference to the last element that was inserted
 		
 		if (!isEmpty()) {
