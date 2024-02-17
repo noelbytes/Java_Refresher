@@ -30,11 +30,11 @@ public class Link {
 		theLinkedList.insertFirstLink("The Lord of the Rings", 150);
 		theLinkedList.insertFirstLink("Harry Potter and the Sorcerer's Stone", 107);
 		
-//		theLinkedList.display();
+		theLinkedList.display();
 		
 		theLinkedList.removeFirst();
 		
-//		theLinkedList.display();
+		theLinkedList.display();
 		
 		System.out.println(theLinkedList.find("The Lord of the Rings").bookName + " was found");
 		
