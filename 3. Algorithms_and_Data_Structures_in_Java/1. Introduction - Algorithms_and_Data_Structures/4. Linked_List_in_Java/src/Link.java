@@ -25,6 +25,9 @@ public class Link {
 	public static void main(String[] args) {
 		LinkedList theLinkedList = new LinkedList();
 		
+		theLinkedList.display();
+		System.out.println();
+		
 		theLinkedList.insertFirstLink("Don Quixote", 500);
 		theLinkedList.insertFirstLink("A Tale of Two Cities", 200);
 		theLinkedList.insertFirstLink("The Lord of the Rings", 150);
@@ -97,6 +100,10 @@ class LinkedList {
 	 * Get the references stored in next for every Link until next returns null */
 	public void display() {
 		Link theLink = firstLink;
+		
+		if (theLink == null) {
+			System.out.println("The LinkedList is empty!");
+		}
 		
 		while (theLink != null) {
 			theLink.display(); // prints out the bookName and the millionsSold
