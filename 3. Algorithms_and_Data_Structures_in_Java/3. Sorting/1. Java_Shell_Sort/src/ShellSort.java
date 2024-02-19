@@ -34,18 +34,24 @@ public class ShellSort {
 				// this loop will continue to run until this becomes an insertion sort
 				for (outer = interval; outer < arraySize; outer++) { // increment the index labeled as outer until the
 																		// end of the array is reached
-					temp = theArray[outer]; // store the value of the array in a temp unless it has to be copied to a space that was previously occupied by a bigger number closer to the beginning of the array 
-					
+					temp = theArray[outer]; // store the value of the array in a temp unless it has to be copied to a
+											// space that was previously occupied by a bigger number closer to the
+											// beginning of the array
+
 					System.out.println("Copy " + theArray[outer] + " into temp");
-					
-					inner = outer; // assign the value of the highest index to check against all values that preceed it
-				
-					System.out.println("Checking if " + theArray[inner - interval] + " in index " + (inner - interval) + " is bigger than temp");
-					
+
+					inner = outer; // assign the value of the highest index to check against all values that
+									// preceed it
+
+					System.out.println("Checking if " + theArray[inner - interval] + " in index " + (inner - interval)
+							+ " is bigger than temp");
+
 					while (inner > interval - 1 && theArray[inner - interval] >= temp) {
-						// loop when there is a number bigger than temp that is further up in the array - continue to swap elements
-						System.out.println("In while checking if " + theArray[inner - interval] + " in index " + (inner - interval) + " is bigger than " + temp);
-						
+						// loop when there is a number bigger than temp that is further up in the array
+						// - continue to swap elements
+						System.out.println("In while checking if " + theArray[inner - interval] + " in index "
+								+ (inner - interval) + " is bigger than " + temp);
+
 					}
 				}
 			}
