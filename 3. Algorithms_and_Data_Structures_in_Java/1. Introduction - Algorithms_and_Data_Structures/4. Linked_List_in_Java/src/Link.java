@@ -35,7 +35,7 @@ public class Link {
 		
 		theLinkedList.display();
 		
-		theLinkedList.removeFirst();
+		System.out.println("Removed : " + theLinkedList.removeFirst());
 		
 		theLinkedList.display();
 		
