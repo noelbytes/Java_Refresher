@@ -16,6 +16,7 @@ class Neighbor {
 		System.out.println(homeOwnerName + ": " + houseNumber + " Privet Drive");
 	}
 
+	@Override
 	public String toString() {
 		return homeOwnerName;
 	}
