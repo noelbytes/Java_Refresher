@@ -26,10 +26,9 @@ class NeighborIterator {
 
 	Neighbor currentNeighbor;
 	Neighbor previousNeighbor;
-	
-	
+
 	DoubleEndedLinkedList theNeighbors;
-	
+
 	NeighborIterator(DoubleEndedLinkedList theNeighbors) {
 		this.theNeighbors = theNeighbors;
 		currentNeighbor = theNeighbors.firstLink;
@@ -40,27 +39,27 @@ class NeighborIterator {
 		if (currentNeighbor.next != null) {
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	public Neighbor next() {
 		if (hasNext()) {
 			previousNeighbor = currentNeighbor;
 			currentNeighbor = currentNeighbor.next;
-			
+
 			return currentNeighbor;
 		}
-		
+
 		return null;
 	}
-	
+
 	public void remove() {
 		if (previousNeighbor == null) { // check if we are at the beginning of our list
 			theNeighbors.firstLink = currentNeighbor.next;
 		} else {
 			previousNeighbor.next = currentNeighbor.next;
-			
+
 			// if we are at the end of the list
 			if (currentNeighbor.next == null) {
 				currentNeighbor = theNeighbors.firstLink;
@@ -85,6 +84,7 @@ public class DoubleEndedLinkedList {
 			lastLink = theNewLink;
 		} else {
 			firstLink.previous = theNewLink;
+
 		}
 
 		theNewLink.next = firstLink;
@@ -128,7 +128,7 @@ public class DoubleEndedLinkedList {
 			currentNeighbor.next.previous = theNewLink; // access the node next to currentNeighbor and have the previous
 														// pointer of the next node point to the new node
 		}
-		
+
 		theNewLink.previous = currentNeighbor;
 		currentNeighbor.next = theNewLink;
 		return true;
@@ -136,58 +136,59 @@ public class DoubleEndedLinkedList {
 
 	public void insertInOrder(String homeOwnerName, int houseNumber) {
 		Neighbor theNewLink = new Neighbor(homeOwnerName, houseNumber);
-		
-		// hold the last neighbor searched, so that we'll be able to change it's value for next if we input a new neighbor
+
+		// hold the last neighbor searched, so that we'll be able to change it's value
+		// for next if we input a new neighbor
 		Neighbor previousNeighbor = null;
 		Neighbor currentNeighbor = firstLink;
-		
+
 		while (currentNeighbor != null && (houseNumber > currentNeighbor.houseNumber)) {
 			previousNeighbor = currentNeighbor;
 			currentNeighbor = currentNeighbor.next;
 		}
-		
+
 		if (previousNeighbor == null) {
 			firstLink = theNewLink;
 		} else {
 			previousNeighbor.next = theNewLink;
 		}
-		
+
 		theNewLink.next = currentNeighbor;
 	}
-	
+
 	public static void main(String[] args) {
 		DoubleEndedLinkedList theLinkedList = new DoubleEndedLinkedList();
 
-//		theLinkedList.insertInFirstPosition("Mark Evans", 7);
-//		theLinkedList.insertInFirstPosition("Piers Polkiss", 9);
-//		theLinkedList.insertInLastPosition("Doreen Figg", 6);
-//		theLinkedList.insertInFirstPosition("Petunia Dursley", 4);
-		
-		theLinkedList.insertInOrder("Mark Evans", 7);
-		theLinkedList.insertInOrder("Piers Polkiss", 9);
-		theLinkedList.insertInOrder("Doreen Figg", 6);
-		theLinkedList.insertInOrder("Petunia Dursley", 4);
-		
-		theLinkedList.insertAfterKey("Allan Noel D'Souza", 10, 4);
+		theLinkedList.insertInFirstPosition("Mark Evans", 7);
+		theLinkedList.insertInFirstPosition("Piers Polkiss", 9);
+		theLinkedList.insertInLastPosition("Doreen Figg", 6);
+		theLinkedList.insertInFirstPosition("Petunia Dursley", 4);
 
+//		theLinkedList.insertInOrder("Mark Evans", 7);
+//		theLinkedList.insertInOrder("Piers Polkiss", 9);
+//		theLinkedList.insertInOrder("Doreen Figg", 6);
+//		theLinkedList.insertInOrder("Petunia Dursley", 4);
+//		
+//		theLinkedList.insertAfterKey("Allan Noel D'Souza", 10, 4);
 
 		theLinkedList.display();
-		
+
 		System.out.println("\n");
-		
+
 		NeighborIterator neighbors = new NeighborIterator(theLinkedList);
-		
+
 		neighbors.currentNeighbor.display();
-		
+
 		System.out.println(neighbors.hasNext());
-		
+
 		neighbors.next();
-		
+
 		neighbors.currentNeighbor.display();
-		
+
 		neighbors.remove(); // removes the current neighbor
-		
-		neighbors.currentNeighbor.display(); // currentNeighbor will now point to the next neighbor after the one that was removed in the list
+
+		neighbors.currentNeighbor.display(); // currentNeighbor will now point to the next neighbor after the one that
+												// was removed in the list
 	}
 
 	public void display() {
