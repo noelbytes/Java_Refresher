@@ -148,6 +148,7 @@ public class DoubleEndedLinkedList {
 		}
 
 		if (previousNeighbor == null) {
+			// if the element is the first element that is being inserted
 			firstLink = theNewLink;
 		} else {
 			previousNeighbor.next = theNewLink;
@@ -159,17 +160,17 @@ public class DoubleEndedLinkedList {
 	public static void main(String[] args) {
 		DoubleEndedLinkedList theLinkedList = new DoubleEndedLinkedList();
 
-		theLinkedList.insertInFirstPosition("Mark Evans", 7);
-		theLinkedList.insertInFirstPosition("Piers Polkiss", 9);
-		theLinkedList.insertInLastPosition("Doreen Figg", 6);
-		theLinkedList.insertInFirstPosition("Petunia Dursley", 4);
+//		theLinkedList.insertInFirstPosition("Mark Evans", 7);
+//		theLinkedList.insertInFirstPosition("Piers Polkiss", 9);
+//		theLinkedList.insertInLastPosition("Doreen Figg", 6);
+//		theLinkedList.insertInFirstPosition("Petunia Dursley", 4);
 
-//		theLinkedList.insertInOrder("Mark Evans", 7);
-//		theLinkedList.insertInOrder("Piers Polkiss", 9);
-//		theLinkedList.insertInOrder("Doreen Figg", 6);
-//		theLinkedList.insertInOrder("Petunia Dursley", 4);
-//		
-//		theLinkedList.insertAfterKey("Allan Noel D'Souza", 10, 4);
+		theLinkedList.insertInOrder("Mark Evans", 7);
+		theLinkedList.insertInOrder("Piers Polkiss", 9);
+		theLinkedList.insertInOrder("Doreen Figg", 6);
+		theLinkedList.insertInOrder("Petunia Dursley", 4);
+
+		theLinkedList.insertAfterKey("Allan Noel D'Souza", 10, 4);
 
 		theLinkedList.display();
 
@@ -201,6 +202,5 @@ public class DoubleEndedLinkedList {
 
 			System.out.println();
 		}
-
 	}
 }
