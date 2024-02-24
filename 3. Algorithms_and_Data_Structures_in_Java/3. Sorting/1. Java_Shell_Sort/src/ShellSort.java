@@ -52,66 +52,83 @@ public class ShellSort {
 						System.out.println("In while checking if " + theArray[inner - interval] + " in index "
 								+ (inner - interval) + " is bigger than " + temp);
 
+						printHorizontalArray(inner, outer, interval);
+
+						theArray[inner] = theArray[inner - interval]; // make room for the smaller temp by moving values
+																		// in the array up by one space if they are
+																		// greater than 10
+						
+						System.out.println(theArray[inner - interval] + " moved to index " + inner);
+						
+						inner -= interval; // subtract interval from inner
+						
+						System.out.println("inner = " + inner);
+						
+						printHorizontalArray(inner, outer, interval);
+						
+						System.out.println("outer = " + outer);
+						System.out.println("temp = " + temp);
+						System.out.println("interval = " + interval);
 					}
 				}
 			}
 		}
 	}
-	
+
 	public void printHorizontalArray(int index1, int index2, int interval) {
 		if (index1 == index2) {
 			index1 = index1 - interval;
 		}
-		
+
 		for (int iteration = 0; iteration < 51; iteration++) {
 			System.out.print("-");
 		}
-		
+
 		System.out.println();
-		
+
 		for (int index = 0; index < arraySize; index++) {
 			System.out.print("| " + index + " ");
 		}
-		
+
 		System.out.println("|");
-		
+
 		for (int iteration = 0; iteration < 51; iteration++) {
 			System.out.print("-");
 		}
-		
+
 		System.out.println();
-		
+
 		for (int index = 0; index < arraySize; index++) {
 			System.out.print("| " + theArray[index] + " ");
 		}
-		
+
 		System.out.println("|");
-		
+
 		for (int iteration = 0; iteration < 51; iteration++) {
 			System.out.print("-");
 		}
-		
+
 		System.out.println();
-		
+
 		if (index1 != -1) {
 			// Number of spaces to put before the F
 			int spacesBeforeFront = 5 * index1 + 1;
-			
+
 			for (int iteration = 0; iteration < spacesBeforeFront; iteration++) {
 				System.out.print(" ");
 			}
-			
+
 			System.out.print("I");
-			
+
 			// Number of spaces to put before the R
 			int spacesBeforeRear = (5 * index2 + 1 - 1) - spacesBeforeFront;
-			
+
 			for (int iteration = 0; iteration < spacesBeforeRear; iteration++) {
 				System.out.print(" ");
 			}
-			
+
 			System.out.print("0");
-			
+
 			System.out.println("\n");
 		}
 	}
