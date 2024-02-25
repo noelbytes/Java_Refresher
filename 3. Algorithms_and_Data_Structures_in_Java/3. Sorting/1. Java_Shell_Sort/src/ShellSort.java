@@ -57,15 +57,15 @@ public class ShellSort {
 						theArray[inner] = theArray[inner - interval]; // make room for the smaller temp by moving values
 																		// in the array up by one space if they are
 																		// greater than 10
-						
+
 						System.out.println(theArray[inner - interval] + " moved to index " + inner);
-						
+
 						inner -= interval; // subtract interval from inner
-						
+
 						System.out.println("inner = " + inner);
-						
+
 						printHorizontalArray(inner, outer, interval);
-						
+
 						System.out.println("outer = " + outer);
 						System.out.println("temp = " + temp);
 						System.out.println("interval = " + interval);
