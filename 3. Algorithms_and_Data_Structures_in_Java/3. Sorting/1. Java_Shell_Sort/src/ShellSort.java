@@ -70,6 +70,12 @@ public class ShellSort {
 						System.out.println("temp = " + temp);
 						System.out.println("interval = " + interval);
 					}
+
+					// Since everything has been moved in place, put the value in temp into the
+					// index above the first value, that's smaller than it
+					theArray[inner] = temp;
+					System.out.println(temp + " moved to index " + inner);
+					printHorizontalArray(inner, outer, interval);
 				}
 			}
 		}
