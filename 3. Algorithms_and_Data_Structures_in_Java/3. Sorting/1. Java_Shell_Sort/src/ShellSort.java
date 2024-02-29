@@ -77,6 +77,11 @@ public class ShellSort {
 					System.out.println(temp + " moved to index " + inner);
 					printHorizontalArray(inner, outer, interval);
 				}
+
+				// We know that we have interval sorted our array, so we just decrement interval
+				// and do it again
+				// In other words, decrement the spaces between the indexes that are going to be
+				// compared
 			}
 		}
 	}
