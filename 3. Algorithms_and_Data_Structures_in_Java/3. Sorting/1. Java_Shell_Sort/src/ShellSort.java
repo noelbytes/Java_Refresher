@@ -27,11 +27,11 @@ public class ShellSort {
 	public void sort() {
 		int inner, outer, temp;
 		int interval = 1; // spaces between the different indexes that we are comparing
-		
+
 		while (interval <= arraySize / 3) {
 			interval = interval * 3 + 1; // this will change depending on the size of the array to improve performance
 		}
-		
+
 		while (interval > 0) {
 			// this loop will continue to run until this becomes an insertion sort
 			for (outer = interval; outer < arraySize; outer++) { // increment the index labeled as outer until the
