@@ -153,8 +153,12 @@ public class DoubleEndedLinkedList {
 		if (previousNeighbor == null) {
 			// if the element is the first element that is being inserted
 			firstLink = theNewLink;
+			if (currentNeighbor != null) {
+				currentNeighbor.previous = theNewLink;
+			}
 		} else {
 			previousNeighbor.next = theNewLink;
+			theNewLink.previous = previousNeighbor;
 		}
 
 		theNewLink.next = currentNeighbor;
@@ -181,11 +185,11 @@ public class DoubleEndedLinkedList {
 
 		NeighborIterator neighbors = new NeighborIterator(theLinkedList);
 
-//		neighbors.currentNeighbor.display();
+		neighbors.currentNeighbor.display();
 
-//		System.out.println(neighbors.hasNext());
+		System.out.println(neighbors.hasNext());
 
-//		neighbors.next();
+		neighbors.next();
 
 		neighbors.currentNeighbor.display();
 
