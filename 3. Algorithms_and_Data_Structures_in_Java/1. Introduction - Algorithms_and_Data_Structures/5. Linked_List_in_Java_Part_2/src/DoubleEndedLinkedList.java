@@ -57,6 +57,8 @@ class NeighborIterator {
 	public void remove() {
 		if (previousNeighbor == null) { // check if we are at the beginning of our list
 			theNeighbors.firstLink = currentNeighbor.next;
+			currentNeighbor = currentNeighbor.next;
+			currentNeighbor.previous = null;
 		} else {
 			previousNeighbor.next = currentNeighbor.next;
 
@@ -66,6 +68,7 @@ class NeighborIterator {
 				previousNeighbor = null;
 			} else {
 				currentNeighbor = currentNeighbor.next;
+				currentNeighbor.previous = previousNeighbor;
 			}
 		}
 	}
@@ -178,11 +181,11 @@ public class DoubleEndedLinkedList {
 
 		NeighborIterator neighbors = new NeighborIterator(theLinkedList);
 
-		neighbors.currentNeighbor.display();
+//		neighbors.currentNeighbor.display();
 
-		System.out.println(neighbors.hasNext());
+//		System.out.println(neighbors.hasNext());
 
-		neighbors.next();
+//		neighbors.next();
 
 		neighbors.currentNeighbor.display();
 
