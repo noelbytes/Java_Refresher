@@ -153,6 +153,9 @@ public class DoubleEndedLinkedList {
 		if (previousNeighbor == null) {
 			// if the element is the first element that is being inserted
 			firstLink = theNewLink;
+
+			// if the element is supposed to be entered at the beginning of the list and is
+			// not the first element that is being inserted
 			if (currentNeighbor != null) {
 				currentNeighbor.previous = theNewLink;
 			}
