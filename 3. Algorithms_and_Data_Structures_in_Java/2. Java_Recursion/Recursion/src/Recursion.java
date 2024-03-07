@@ -17,16 +17,16 @@ public class Recursion {
 	public static void main(String[] args) {
 		Recursion recursionTool = new Recursion();
 		
-		// recursionTool.calculateSquaresToPrint(6);
+		 recursionTool.calculateSquaresToPrint(6);
 		
-		System.out.println("Triangular Number : " + recursionTool.getTriangularNumber(6)); // 21 is the triangular number for 6
-		System.out.println("-------------------------------------------");
-		
-		System.out.println("Triangular Number : (Using recursion) = " + recursionTool.getTriangularNumberByRecursion(6));
-		System.out.println("-------------------------------------------");
-
-		System.out.println("Factorial : (Using recursion) = " + recursionTool.getFactorialUsingRecursion(6));
-		System.out.println("-------------------------------------------");
+//		System.out.println("Triangular Number : " + recursionTool.getTriangularNumber(6)); // 21 is the triangular number for 6
+//		System.out.println("-------------------------------------------");
+//		
+//		System.out.println("Triangular Number : (Using recursion) = " + recursionTool.getTriangularNumberByRecursion(6));
+//		System.out.println("-------------------------------------------");
+//
+//		System.out.println("Factorial : (Using recursion) = " + recursionTool.getFactorialUsingRecursion(6));
+//		System.out.println("-------------------------------------------");
 
 	}
 	
@@ -114,6 +114,6 @@ public class Recursion {
 	}
 	
 	public double calculateTraingularNumber(int number) {
-		return .5 * number * (1 + number);
+		return .5 * number * (1 + number);   // Formula to calculate triangular numbers : (n * (n + 1)) / 2
 	}
 }
