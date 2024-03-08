@@ -104,12 +104,12 @@ public class Recursion {
 	}
 	
 	// Outputs the number of squares to print to represent a triangle
-	public void calculateSquaresToPrint(int number) {
-		for (int index1 = 1; index1 <= number; index1++) {
-			for (int index2 = 1; index2 < index1; index2++) {
-				drawSquares(index2);
+	public void calculateSquaresToPrint(int count) {
+		for (int number = 1; number <= count; number++) {
+			for (int numberOfSquares = 1; numberOfSquares < number; numberOfSquares++) {
+				drawSquares(numberOfSquares);
 			}
-			System.out.println("Triangular Number : " + calculateTraingularNumber(index1));
+			System.out.println("Triangular Number : " + calculateTraingularNumber(number));
 		}
 	}
 	
