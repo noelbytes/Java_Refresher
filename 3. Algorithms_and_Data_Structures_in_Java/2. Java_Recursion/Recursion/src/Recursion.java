@@ -16,9 +16,9 @@
 public class Recursion {
 	public static void main(String[] args) {
 		Recursion recursionTool = new Recursion();
-		
-		 recursionTool.calculateSquaresToPrint(6);
-		
+
+		recursionTool.calculateSquaresToPrint(6);
+
 //		System.out.println("Triangular Number : " + recursionTool.getTriangularNumber(6)); // 21 is the triangular number for 6
 //		System.out.println("-------------------------------------------");
 //		
@@ -29,26 +29,26 @@ public class Recursion {
 //		System.out.println("-------------------------------------------");
 
 	}
-	
+
 	// Calculate triangular numbers without using recursion
 	public int getTriangularNumber(int number) {
 		int triangularNumber = 0;
-		
+
 		// 3 + 2 + 1 = 6
-		
+
 		while (number > 0) {
 			triangularNumber = triangularNumber + number;
 			number--;
 		}
-		
+
 		return triangularNumber;
 	}
-	
+
 	// Calculate triangular numbers using recursion
 	public int getTriangularNumberByRecursion(int number) {
-		
+
 		System.out.println("Method " + number);
-		
+
 		// Base case
 		if (number == 1) {
 			System.out.println("Returned 1");
@@ -57,16 +57,16 @@ public class Recursion {
 			int result = number + getTriangularNumberByRecursion(number - 1);
 			System.out.print("Returned " + result);
 			System.out.println(" : " + number + " + getTN(" + number + " -1)");
-			
+
 			return result;
 		}
 	}
-	
+
 	// Calculating the factorial using recursion
 	// F(3) = 3 * 2 * 1 = 6
 	public int getFactorialUsingRecursion(int number) {
 		System.out.println("Method " + number);
-		
+
 		if (number == 1) {
 			System.out.println("Returned 1");
 			return 1;
@@ -74,35 +74,35 @@ public class Recursion {
 			int result = number * getFactorialUsingRecursion(number - 1);
 			System.out.print("Returned " + result);
 			System.out.println(" : " + number + " * getFACT(" + number + " - 1)");
-			
+
 			return result;
 		}
 	}
-	
+
 	// USED TO DEMONSTRATE TRIANGULAR NUMBERS -----------------------
-	
+
 	// Draws the number of squares that are passed in horizontally
-	
+
 	public void drawSquares(int howManySquares) {
 		for (int iteration = 0; iteration < howManySquares; iteration++) {
 			System.out.print(" --  ");
 		}
-		
+
 		System.out.println();
-		
+
 		for (int iteration = 0; iteration < howManySquares; iteration++) {
 			System.out.print("|" + howManySquares + " | ");
 		}
-		
+
 		System.out.println();
-		
+
 		for (int iteration = 0; iteration < howManySquares; iteration++) {
 			System.out.print(" --  ");
 		}
-		
+
 		System.out.println("\n");
 	}
-	
+
 	// Outputs the number of squares to print to represent a triangle
 	public void calculateSquaresToPrint(int count) {
 		for (int number = 1; number <= count; number++) {
@@ -112,8 +112,8 @@ public class Recursion {
 			System.out.println("Triangular Number : " + calculateTraingularNumber(number));
 		}
 	}
-	
+
 	public double calculateTraingularNumber(int number) {
-		return .5 * number * (1 + number);   // Formula to calculate triangular numbers : (n * (n + 1)) / 2
+		return .5 * number * (1 + number); // Formula to calculate triangular numbers : (n * (n + 1)) / 2
 	}
 }
