@@ -16,9 +16,9 @@ public class Partitioning {
 	}
 
 	public void partitionArray(int pivotValue) {
-		
+
 	}
-	
+
 	public static void main(String[] args) {
 
 	}
