@@ -15,11 +15,11 @@ public class Partitioning {
 
 	}
 
-	public static void main(String[] args) {
+	public void partitionArray(int pivotValue) {
 
 	}
 
-	public void partitionArray(int pivotValue) {
+	public static void main(String[] args) {
 
 	}
 
