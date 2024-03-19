@@ -13,7 +13,6 @@ public class MergeSort {
 		// Send the array, 0 and the array size
 		mergeSort(array, 0, array.length - 1);
 
-		
 		System.out.println("\nFINAL SORTED ARRAY");
 		printHorizontalArray(-1, -1, array, 49);
 	}
@@ -76,18 +75,18 @@ public class MergeSort {
 							"array[" + index + "] = " + array[index] + " Stored in array index " + (index + 1));
 					array[index + 1] = array[index];
 				}
-				
+
 				System.out.println(temporaryValue + " is stored in index " + lowerIndex);
-				
+
 				printHorizontalArray(-1, -1, array, 49);
-				
+
 				array[lowerIndex] = temporaryValue;
 				lowerIndex++;
 				lastIndexOfTheFirstArray++;
 				firstIndexOfTheSecondArray++;
 			}
 		}
-		
+
 		printHorizontalArray(-1, -1, array, 49);
 	}
 
