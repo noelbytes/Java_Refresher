@@ -9,8 +9,9 @@
  * 			return 1;
  * 		} else {
  * 			return (number + getTraingularNumber(number - 1));
+ * 		}
  * }
-} 
+ * 
 */
 
 public class Recursion {
