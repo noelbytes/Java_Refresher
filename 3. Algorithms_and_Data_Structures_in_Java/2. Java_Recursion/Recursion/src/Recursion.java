@@ -84,7 +84,6 @@ public class Recursion {
 	// USED TO DEMONSTRATE TRIANGULAR NUMBERS -----------------------
 
 	// Draws the number of squares that are passed in horizontally
-
 	public void drawSquares(int howManySquares) {
 		for (int iteration = 0; iteration < howManySquares; iteration++) {
 			System.out.print(" --  ");
