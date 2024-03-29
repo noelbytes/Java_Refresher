@@ -24,8 +24,7 @@ public class Recursion {
 																							// number for 6
 		System.out.println("-------------------------------------------");
 
-		System.out
-				.println("Triangular Number : (Using recursion) = " + recursionTool.getTriangularNumberByRecursion(6));
+		System.out.println("Triangular Number : (Using recursion) = " + recursionTool.getTriangularNumberByRecursion(6));
 		System.out.println("-------------------------------------------");
 //
 		System.out.println("Factorial : (Using recursion) = " + recursionTool.getFactorialUsingRecursion(6));
