@@ -43,8 +43,7 @@ public class MergeSort {
 		int firstIndexOfTheSecondArray = middleIndex + 1;
 
 		// If the lowest index is less than or equal to the bottom arrays highest index
-		// and the lowest index of the 2nd array is less than or equal to it's highest
-		// index
+		// and the lowest index of the 2nd array is less than or equal to it's highest index
 		while ((lowerArrayIndex <= lastIndexOfTheFirstArray) && (firstIndexOfTheSecondArray <= higherIndex)) {
 
 			System.out.println("\nBOTTOM ARRAY");
@@ -118,7 +117,11 @@ public class MergeSort {
 		System.out.println();
 
 		for (int index = 0; index < theArray.length; index++) {
-			System.out.print(String.format("| %2s " + " ", theArray[index]));
+			System.out.print(String.format("| %2s " + " ", theArray[index])); // here, the %2s ensures that each element
+																				// takes up at least 2 characters of
+																				// space when printed. If an element
+																				// requires less than 2 characters, it's
+																				// padded with spaces.
 		}
 
 		System.out.println("|");
