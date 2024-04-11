@@ -6,7 +6,7 @@ public class MergeSort {
 
 		System.out.println("STARTING ARRAY\n");
 
-		printHorizontalArray(-1, -1, array, 49);
+		printHorizontalArray(array, 49);
 
 		System.out.println();
 
@@ -14,7 +14,7 @@ public class MergeSort {
 		mergeSort(array, 0, array.length - 1);
 
 		System.out.println("\nFINAL SORTED ARRAY");
-		printHorizontalArray(-1, -1, array, 49);
+		printHorizontalArray(array, 49);
 	}
 
 	// Receives the array, 0 and the array size
@@ -52,7 +52,7 @@ public class MergeSort {
 			System.out.println("\nTOP ARRAY");
 			printSmallArray(array, firstIndexOfTheSecondArray, higherIndex);
 
-			printHorizontalArray(-1, -1, array, 49);
+			printHorizontalArray(array, 49);
 
 			// If the value in the first index of the first array is less than the value in
 			// the first index of the second array
@@ -77,7 +77,7 @@ public class MergeSort {
 
 				System.out.println(temporaryValue + " is stored in index " + lowerIndex);
 
-				printHorizontalArray(-1, -1, array, 49);
+				printHorizontalArray(array, 49);
 
 				array[lowerIndex] = temporaryValue;
 				lowerIndex++;
@@ -86,7 +86,7 @@ public class MergeSort {
 			}
 		}
 
-		printHorizontalArray(-1, -1, array, 49);
+		printHorizontalArray(array, 49);
 	}
 
 	// Used to print out the smaller arrays
@@ -94,10 +94,10 @@ public class MergeSort {
 		int[] temporaryArray = Arrays.copyOfRange(theArray, lowerArrayIndex, higherArrayIndex);
 		int temporaryArrayDashes = temporaryArray.length * 6;
 		System.out.println("Array Index Start " + lowerArrayIndex + " and End " + higherArrayIndex);
-		printHorizontalArray(-1, -1, temporaryArray, temporaryArrayDashes);
+		printHorizontalArray(temporaryArray, temporaryArrayDashes);
 	}
 
-	static void printHorizontalArray(int index1, int index2, int theArray[], int numberOfDashes) {
+	static void printHorizontalArray(int theArray[], int numberOfDashes) {
 		for (int iteration = 0; iteration < numberOfDashes; iteration++) {
 			System.out.print("-");
 		}
