@@ -22,6 +22,7 @@ public class MergeSort {
 		int lowerIndex = lowerArrayIndex;
 		int higherIndex = higherArrayIndex;
 
+		// Base case
 		if (lowerIndex >= higherIndex) {
 			return;
 		}
