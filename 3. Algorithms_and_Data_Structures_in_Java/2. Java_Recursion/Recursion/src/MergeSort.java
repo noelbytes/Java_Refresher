@@ -65,7 +65,7 @@ public class MergeSort {
 				// Increment to the next index in the 1st array
 				lowerIndex++;
 			} else {
-				// Store the value in the 1st index of the second array
+				// Store the value of the 1st index of the second array
 				int temporaryValue = array[firstIndexOfTheSecondArray];
 				System.out.println("Temp: " + temporaryValue);
 
