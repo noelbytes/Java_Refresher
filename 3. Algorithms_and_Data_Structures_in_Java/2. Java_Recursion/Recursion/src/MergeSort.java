@@ -44,8 +44,7 @@ public class MergeSort {
 		int firstIndexOfTheSecondArray = middleIndex + 1;
 
 		// If the lowest index is less than or equal to the bottom arrays highest index
-		// and the lowest index of the 2nd array is less than or equal to it's highest
-		// index
+		// and the lowest index of the 2nd array is less than or equal to it's highest index
 		while ((lowerArrayIndex <= lastIndexOfTheFirstArray) && (firstIndexOfTheSecondArray <= higherIndex)) {
 
 			System.out.println("\nBOTTOM ARRAY");
