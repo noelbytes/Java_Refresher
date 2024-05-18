@@ -37,7 +37,7 @@ public class MergeSort {
 		// Send the array, the middle index + 1 and the highest index of the array
 		mergeSort(array, middleIndex + 1, higherIndex);
 
-		// Merge the two arrays into a single array
+
 		// Store the last index of the first array
 		int lastIndexOfTheFirstArray = middleIndex;
 
