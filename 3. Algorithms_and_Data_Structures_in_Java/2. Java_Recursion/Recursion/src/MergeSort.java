@@ -68,23 +68,27 @@ public class MergeSort {
 			} else {
 				// Store the value of the 1st index of the second array
 				int temporaryValue = array[firstIndexOfTheSecondArray];
-				System.out.println("Temp: " + temporaryValue);
+				System.out.println("First element of the second array (temp variable) : " + temporaryValue);
 
 				// Decrement backwards through the first array starting at the last index in the
 				// first array
 				for (int index = firstIndexOfTheSecondArray - 1; index >= lowerIndex; index--) {
 					System.out.println(
-							"array[" + index + "] = " + array[index] + " Stored in array index " + (index + 1));
+							"array[" + index + "] = " + array[index] + " has swapped places with the value in the array index " + (index + 1));
 					array[index + 1] = array[index];
 				}
 
-				System.out.println(temporaryValue + " is stored in index " + lowerIndex);
+				System.out.println(temporaryValue + " is stored in the index " + lowerIndex);
 
 				printHorizontalArray(array, 49);
 
 				array[lowerIndex] = temporaryValue;
+				
+				// Shift the position of the first array
 				lowerIndex++;
 				lastIndexOfTheFirstArray++;
+				
+				// Shift the position of the second array
 				firstIndexOfTheSecondArray++;
 			}
 		}
@@ -94,7 +98,7 @@ public class MergeSort {
 
 	// Used to print out the smaller arrays
 	static void printSmallArray(int theArray[], int lowerArrayIndex, int higherArrayIndex) {
-		int[] temporaryArray = Arrays.copyOfRange(theArray, lowerArrayIndex, higherArrayIndex);
+		int[] temporaryArray = Arrays.copyOfRange(theArray, lowerArrayIndex, higherArrayIndex + 1);
 		int temporaryArrayDashes = temporaryArray.length * 6;
 		System.out.println("Array Index Start " + lowerArrayIndex + " and End " + higherArrayIndex);
 		printHorizontalArray(temporaryArray, temporaryArrayDashes);
