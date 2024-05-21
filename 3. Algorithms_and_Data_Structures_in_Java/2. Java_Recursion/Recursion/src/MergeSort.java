@@ -37,7 +37,6 @@ public class MergeSort {
 		// Send the array, the middle index + 1 and the highest index of the array
 		mergeSort(array, middleIndex + 1, higherIndex);
 
-
 		// Store the last index of the first array
 		int lastIndexOfTheFirstArray = middleIndex;
 
@@ -73,8 +72,8 @@ public class MergeSort {
 				// Decrement backwards through the first array starting at the last index in the
 				// first array
 				for (int index = firstIndexOfTheSecondArray - 1; index >= lowerIndex; index--) {
-					System.out.println(
-							"array[" + index + "] = " + array[index] + " has swapped places with the value in the array index " + (index + 1));
+					System.out.println("array[" + index + "] = " + array[index]
+							+ " has swapped places with the value in the array index " + (index + 1));
 					array[index + 1] = array[index];
 				}
 
@@ -83,11 +82,11 @@ public class MergeSort {
 				printHorizontalArray(array, 49);
 
 				array[lowerIndex] = temporaryValue;
-				
+
 				// Shift the position of the first array
 				lowerIndex++;
 				lastIndexOfTheFirstArray++;
-				
+
 				// Shift the position of the second array
 				firstIndexOfTheSecondArray++;
 			}
