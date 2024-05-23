@@ -30,7 +30,7 @@ public class RecursiveMergeSort {
 
 		// Base case
 		if (length <= 1) {
-			// if the length of the array is 1, there is no need to divide our array furthur
+			// if the length of the array is 1, there is no need to divide our array further
 			return;
 		}
 
