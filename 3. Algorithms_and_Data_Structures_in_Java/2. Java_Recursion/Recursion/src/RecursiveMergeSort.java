@@ -1,6 +1,7 @@
 
 public class RecursiveMergeSort {
-	// Merge Sort - recursively divides an array in 2, sorts them, and then, re-combines the divided arrays into a single array
+	// Merge Sort - recursively divides an array in 2, sorts them, and then,
+	// re-combines the divided arrays into a single array
 	// It is a divide and conquer algorithm
 	// Run-time complexity = O(nlogn)
 	// Space complexity = O(n)
@@ -14,9 +15,9 @@ public class RecursiveMergeSort {
 			System.out.println("array[" + index + "] = " + array[index]);
 		}
 		System.out.println("---------------------------------------------------------");
-		
+
 		mergeSort(array);
-		
+
 		System.out.println("---------------------------------------------------------");
 		for (int index = 0; index < array.length; index++) {
 			System.out.println("array[" + index + "] = " + array[index]);
@@ -79,7 +80,8 @@ public class RecursiveMergeSort {
 			// check to see which element is smaller
 			if (leftArray[leftArrayIndex] < rightArray[rightArrayIndex]) {
 				// copy the element from the leftArray over to the original array
-				// in other words, we are comparing the value in the left array with the value in the rightArray and adding whatever number is smaller to the original array
+				// in other words, we are comparing the value in the left array with the value
+				// in the rightArray and adding whatever number is smaller to the original array
 				array[arrayIndex] = leftArray[leftArrayIndex];
 				arrayIndex++;
 				leftArrayIndex++;
@@ -89,14 +91,16 @@ public class RecursiveMergeSort {
 				rightArrayIndex++;
 			}
 		}
-		
-		// There's probably going to be one element remaining that we cannot compare to another element because there's only one left,  so we are writing the following while loop for this condition
+
+		// There's probably going to be one element remaining that we cannot compare to
+		// another element because there's only one left, so we are writing the
+		// following while loop for this condition
 		while (leftArrayIndex < leftSize) {
 			array[arrayIndex] = leftArray[leftArrayIndex];
 			arrayIndex++;
 			leftArrayIndex++;
 		}
-		
+
 		// another loop for the remaining elements in the right array
 		while (rightArrayIndex < rightSize) {
 			array[arrayIndex] = rightArray[rightArrayIndex];
