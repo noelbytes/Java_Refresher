@@ -5,7 +5,7 @@ public class RecursiveMergeSort {
 	// It is a divide and conquer algorithm
 	// Run-time complexity = O(nlogn)
 	// Space complexity = O(n)
-	public static void main(String args[]) {
+	public static void main(String args[]) {s
 		int[] array = { 8, 2, 5, 3, 4, 7, 6, 1 };
 
 //		mergeSort(array);
