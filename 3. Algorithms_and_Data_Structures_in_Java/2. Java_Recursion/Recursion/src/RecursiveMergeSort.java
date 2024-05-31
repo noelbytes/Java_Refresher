@@ -1,11 +1,12 @@
 
 public class RecursiveMergeSort {
-	// Merge Sort - recursively divides an array in 2, sorts them, and then, re-combines the divided arrays into a single array
+	// Merge Sort - recursively divides an array in 2, sorts them, and then,
+	// re-combines the divided arrays into a single array
 	// It is a divide and conquer algorithm
 	// Run-time complexity = O(nlogn)
 	// Space complexity = O(n)
-	public static void main(String args[]) {s
-		int[] array = { 8, 2, 5, 3, 4, 7, 6, 1 };
+	public static void main(String args[]) {
+		int[] array = { 10, 8, 4, 80, 13, 1, 3, 11 };
 
 //		mergeSort(array);
 
