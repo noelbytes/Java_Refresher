@@ -1,4 +1,4 @@
-/*The Shell Sort partially sorts the array by sorting elements that are a certain 
+/* The Shell Sort partially sorts the array by sorting elements that are a certain 
  * number of spaces apart called the interval
  * The index to the left will be referred to as the inner index, and h -  will be representing the interval, 
  * or number of spaces apart, and this is also known as the outer part of the array when using the shell sort. 
