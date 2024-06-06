@@ -43,7 +43,7 @@ public class ShellSort {
 				System.out.println("Copy " + theArray[outer] + " into temp");
 
 				inner = outer; // assign the value of the highest index to check against all values that
-								// preceed it
+								// precede it
 
 				System.out.println("Checking if " + theArray[inner - interval] + " in index " + (inner - interval)
 						+ " is bigger than temp");
