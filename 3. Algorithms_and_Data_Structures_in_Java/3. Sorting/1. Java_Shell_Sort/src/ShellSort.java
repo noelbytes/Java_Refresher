@@ -133,7 +133,7 @@ public class ShellSort {
 
 			System.out.print("I");
 
-			// Number of spaces to put before the R
+			// Number of spaces to put before the O
 			int spacesBeforeRear = (5 * index2 + 2) - spacesBeforeFront;
 
 			for (int iteration = 0; iteration < spacesBeforeRear; iteration++) {
