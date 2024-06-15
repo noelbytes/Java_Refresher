@@ -46,7 +46,7 @@ public class ShellSort {
 								// precede it
 
 				System.out.println("Checking if " + theArray[inner - interval] + " in index " + (inner - interval)
-						+ " is bigger than temp");
+						+ " is bigger than the value in temp");
 
 				while (inner > interval - 1 && theArray[inner - interval] >= temp) {
 					// loop when there is a number bigger than temp that is further up in the array
@@ -101,7 +101,7 @@ public class ShellSort {
 		System.out.println();
 
 		for (int index = 0; index < arraySize; index++) {
-			System.out.print("| " + index + " ");
+			System.out.format("| %2s ", index);
 		}
 
 		System.out.println("|");
