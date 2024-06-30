@@ -28,6 +28,9 @@ public class ShellSort {
 		int inner, outer, temp;
 		int interval = 1; // spaces between the different indexes that we are comparing
 
+		// Knuth sequence of intervals for Shell Sort
+		// The Knuth sequence 1, 4, 13, 40, 121, ... is used because it has been found
+		// empirically to provide good performance for the Shell Sort.
 		while (interval <= arraySize / 3) {
 			interval = interval * 3 + 1; // this will change depending on the size of the array to improve performance
 		}
