@@ -136,7 +136,7 @@ public class Partitioning {
 
 	public static void main(String[] args) {
 		Partitioning partitionArrayReference = new Partitioning(10);
-		partitionArrayReference.generateRandomArray();
+		
 		System.out.println(Arrays.toString(Partitioning.theArray));
 
 		partitionArrayReference.partitionArray(35);
