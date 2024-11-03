@@ -33,7 +33,8 @@ public class Partitioning {
 		 * The way the leftPointer is going to work is it's going to sort through the
 		 * array until it finds an item that is greater than the pivot. Then it's going
 		 * to stop and wait for the right pointer to find a value that is less than the
-		 * pivot. Then, those items at the left and right pointer are going to be switched.
+		 * pivot. Then, those items at the left and right pointer are going to be
+		 * switched.
 		 */
 		int leftPointer = -1; // the pointer is currently outside of the array
 		int rightPointer = arraySize; // right side of the array
@@ -136,7 +137,7 @@ public class Partitioning {
 
 	public static void main(String[] args) {
 		Partitioning partitionArrayReference = new Partitioning(10);
-		
+
 		System.out.println(Arrays.toString(Partitioning.theArray));
 
 		partitionArrayReference.partitionArray(35);
