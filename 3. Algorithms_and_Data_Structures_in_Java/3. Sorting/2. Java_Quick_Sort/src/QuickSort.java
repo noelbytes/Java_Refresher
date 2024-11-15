@@ -7,14 +7,15 @@ public class QuickSort {
 
 	private QuickSort(int newArraySize) {
 		arraySize = newArraySize;
-		theArray = new int[arraySize];
+		theArray = new int[] { 50, 32, 53, 41, 26, 16, 55, 17, 22, 10 };
 		generateRandomArray();
 	}
 
 	private void generateRandomArray() {
-		for (int index = 0; index < arraySize; index++) {
-			theArray[index] = (int) (Math.random() * 50) + 10;
-		}
+		/*
+		 * for (int index = 0; index < arraySize; index++) { theArray[index] = (int)
+		 * (Math.random() * 50) + 10; }
+		 */
 	}
 
 	private void quickSort(int leftIndex, int rightIndex) {
@@ -51,8 +52,8 @@ public class QuickSort {
 				; // Search through the array until we find a value that needs to be switched
 			printHorizontalArray(leftPointer, rightPointer);
 
-			System.out.println(theArray[leftPointer] + " in index " + leftPointer + " is bigger than the pivot value "
-					+ pivot);
+			System.out.println(
+					theArray[leftPointer] + " in index " + leftPointer + " is bigger than the pivot value " + pivot);
 
 			/*
 			 * The right pointer is going to cycle through the array until the beginning is
@@ -64,31 +65,32 @@ public class QuickSort {
 
 			printHorizontalArray(leftPointer, rightPointer);
 
-			System.out.println(theArray[rightPointer] + " in index " + rightPointer
-					+ " is smaller than the pivot value " + pivot);
+			if (theArray[rightPointer] < pivot) {
+				System.out.println(theArray[rightPointer] + " in index " + rightPointer
+						+ " is smaller than the pivot value " + pivot);
+			}
 
 			printHorizontalArray(leftPointer, rightPointer);
 
 			if (leftPointer >= rightPointer) {
 				System.out.println("The left pointer is >= the right pointer so start again");
-				break;  // this will break out of the infinite while loop
+				break; // this will break out of the infinite while loop
 			} else {
 				swapValues(leftPointer, rightPointer);
 				System.out.println(theArray[leftPointer] + " was swapped for " + theArray[rightPointer]);
 			}
 		}
-		
-		swapValues(leftPointer, rightIndex);
-		
-		return leftPointer;
+
+		swapValues(leftPointer, rightIndex); // Swap the left pointer with the pivot value
+
+		return leftPointer; // Since the values are swapped, this will return the position of the pivot element
 	}
-	
+
 	private void swapValues(int indexOne, int indexTwo) {
 		int temporaryValue = theArray[indexOne];
 		theArray[indexOne] = theArray[indexTwo];
 		theArray[indexTwo] = temporaryValue;
 	}
-
 
 	private void printHorizontalArray(int index1, int index2) {
 		for (int iteration = 0; iteration < (arraySize * 6) + 1; iteration++) {
@@ -123,7 +125,7 @@ public class QuickSort {
 
 		if (index1 != -1) {
 			// Number of spaces to put before the L
-			int spacesBeforeTheLeftPointer = 6 * (index1 + 1) - 5 + 1;
+			int spacesBeforeTheLeftPointer = index1 * 6 + 2;
 
 			for (int iteration = 0; iteration < spacesBeforeTheLeftPointer; iteration++) {
 				System.out.print(" ");
@@ -146,7 +148,7 @@ public class QuickSort {
 
 	public static void main(String[] args) {
 		QuickSort quickSortReference = new QuickSort(10);
-		
+
 		System.out.println(Arrays.toString(QuickSort.theArray));
 		quickSortReference.quickSort(0, arraySize - 1);
 		System.out.println(Arrays.toString(QuickSort.theArray));
