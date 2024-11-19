@@ -33,6 +33,8 @@ public class QuickSort {
 
 			int pivotLocation = partitionArray(leftIndex, rightIndex, pivot);
 
+			printHorizontalArray(leftIndex, rightIndex);
+			
 			System.out.println(
 					"Value at the left index of the array " + theArray[leftIndex] + " is made the pivot value");
 
