@@ -7,15 +7,14 @@ public class QuickSort {
 
 	private QuickSort(int newArraySize) {
 		arraySize = newArraySize;
-		theArray = new int[] { 50, 32, 53, 41, 26, 16, 55, 17, 22, 10 };
+		theArray = new int[arraySize];
 		generateRandomArray();
 	}
 
 	private void generateRandomArray() {
-		/*
-		 * for (int index = 0; index < arraySize; index++) { theArray[index] = (int)
-		 * (Math.random() * 50) + 10; }
-		 */
+		for (int index = 0; index < arraySize; index++) {
+			theArray[index] = (int) (Math.random() * 50) + 10;
+		}
 	}
 
 	private void quickSort(int leftIndex, int rightIndex) {
@@ -34,13 +33,15 @@ public class QuickSort {
 			int pivotLocation = partitionArray(leftIndex, rightIndex, pivot);
 
 			printHorizontalArray(leftIndex, rightIndex);
-			
+
 			System.out.println(
 					"Value at the left index of the array " + theArray[leftIndex] + " is made the pivot value");
 
 			// Recursive call
-			quickSort(leftIndex, pivotLocation - 1); // this will sort the left side
-			quickSort(pivotLocation + 1, rightIndex); // this will sort the right side
+			quickSort(leftIndex, pivotLocation - 1); // this will sort the left side, which contains elements that are
+														// less than the pivot value
+			quickSort(pivotLocation + 1, rightIndex); // this will sort the right side, which contains elements that are
+														// >= to the pivot value
 		}
 
 	}
