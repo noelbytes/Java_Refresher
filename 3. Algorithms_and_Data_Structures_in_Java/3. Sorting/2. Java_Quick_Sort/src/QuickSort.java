@@ -153,9 +153,9 @@ public class QuickSort {
 	public static void main(String[] args) {
 		QuickSort quickSortReference = new QuickSort(10);
 		System.out.println(Arrays.toString(QuickSort.theArray));
-		
+
 		quickSortReference.quickSort(0, arraySize - 1);
-		
+
 		System.out.println(Arrays.toString(QuickSort.theArray));
 	}
 }
