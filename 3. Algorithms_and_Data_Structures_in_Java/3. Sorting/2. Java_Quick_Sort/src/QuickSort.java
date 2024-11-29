@@ -86,8 +86,7 @@ public class QuickSort {
 
 		swapValues(leftPointer, rightIndex); // Swap the left pointer with the pivot value
 
-		return leftPointer; // Since the values are swapped, this will return the position of the pivot
-							// element
+		return leftPointer; // Since the values are swapped, this will return the position of the pivot element
 	}
 
 	private void swapValues(int indexOne, int indexTwo) {
