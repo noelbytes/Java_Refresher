@@ -7,11 +7,11 @@ public class BigONotation {
 //	45n^3 + 20n^2 + 19 = 47,019 (n = 10)
 //	45n^3 = 45,000
 
-/*
- * If you're dealing with very large numbers, you quickly see that the part of
- * this algorithm that really has a lot to do with the final answer as this
- * dataset scales is not even going to be the 45, but it's going to be the n^3.
- */
+	/*
+	 * If you're dealing with very large numbers, you quickly see that the part of
+	 * this algorithm that really has a lot to do with the final answer as this
+	 * dataset scales is not even going to be the 45, but it's going to be the n^3.
+	 */
 
 //	Hence, we say that this has an order of N^3 or O(N^3)
 
