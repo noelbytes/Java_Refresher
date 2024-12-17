@@ -31,11 +31,11 @@ public class BigONotation {
 
 	}
 
-	/*
-	 * O(1) - This notation indicates an algorithm that executes in the same amount
-	 * of time regardless of the amount of data, or in other words, it's going to be
-	 * code that executes in the same amount of time no matter how big the array is
-	 */
+/*
+ * O(1) - This notation indicates an algorithm that executes in the same amount
+ * of time regardless of the amount of data, or in other words, it's going to be
+ * code that executes in the same amount of time no matter how big the array is
+ */
 	public void addItemToArray(int newItem) {
 		theArray[itemsInArray++] = newItem;
 	}
