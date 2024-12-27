@@ -78,7 +78,7 @@ public class HashFunction {
 			String newElementValue = stringsForArray[index];
 			
 			int arrayIndex = Integer.parseInt(stringsForArray[index]) % 29; /* Create an index to store the value in by taking it's modulus. 
-																				The modulus operation is going to guarentee that the index is 
+																				The modulus operation is going to guarantee that the index is 
 																				not going to be greater than 30. For any other value, adjust 
 																				the divisor accordingly. */ 
 			
@@ -113,6 +113,9 @@ public class HashFunction {
 		// Find the keys original hash key
 		int arrayIndexHash = Integer.parseInt(key) % 29;
 		
+		// Store the start index to detect a full loop
+		int startIndex = arrayIndexHash;
+		
 		while (theArray[arrayIndexHash] != "-1") {
 			if (theArray[arrayIndexHash] == key) {
 				System.out.println(key + " was found in Index " + arrayIndexHash);
@@ -124,8 +127,14 @@ public class HashFunction {
 			++arrayIndexHash;
 			
 			arrayIndexHash %= arraySize; // If we get to the end of the array, go back to zero
+			
+			// If we've looped back to the start index, the value is not in the array
+			if (arrayIndexHash == startIndex) {
+				break;
+			}
 		}
 		
+		System.out.println("The value " + key + " cannot be found in the given hashmap");
 		return null; // This means that the value associated with the specific key could not be found
 	}
 	
