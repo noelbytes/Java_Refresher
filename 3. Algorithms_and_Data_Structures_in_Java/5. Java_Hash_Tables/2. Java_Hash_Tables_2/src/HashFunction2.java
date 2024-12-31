@@ -5,7 +5,7 @@
 Why we use primes?
 -----------------------
 --> Previously, we used the following formula to calculate the hash value.
-	arrayIndex = newElementVal (i.e. the value that we wanted to store in our hash  table) % arraySize
+	arrayIndex = newElementVal (i.e. the value that we wanted to store in our hash table) % arraySize
 --> The arraySize should be a prime number for the following reasons:
 		- We want to avoid collisions
 		- Collisions occur when storing similar data
@@ -41,7 +41,7 @@ How to avoid clustering?
 -----------------------------------------------------------------------
 
 This is the reason why we'll end up with arrays where there is literally nothing in one part of the array, and in another part 
-of the array, everything seems to be bunched up. That is bad, and that is to be avoided
+of the array, everything seems to be bunched up. That is bad, and that is to be avoided.
  */
 
 import java.util.Arrays;
@@ -51,8 +51,7 @@ public class HashFunction2 {
 
 	private String[] theArray;
 	private int arraySize;
-	private int itemsInArray = 0;
-
+	
 	private HashFunction2(int size) {
 		arraySize = size;
 		theArray = new String[size];
