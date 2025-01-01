@@ -167,10 +167,10 @@ public class HashFunction2 {
 			// Change the step / step distance to get the distance to skip down in the array
 			// after a collision occurs to a other random index, and we're going to do this
 			// to avoid creating clusters
-			int stepDistance = 5 - (Integer.parseInt(newElementValue) % 5); // Here, we are using 7, since it is a prime
+			int stepDistance = 5 - (Integer.parseInt(newElementValue) % 5); // Here, we are using 5, since it is a prime
 																			// number. Always make sure that the value
 																			// that you are using is a prime number.
-																			// Here it will move the value 7 steps down
+																			// Here it will move the value 5 steps down
 																			// in other indexes rather than just picking
 																			// the next index
 
@@ -193,6 +193,9 @@ public class HashFunction2 {
 	private String findKeyDoubleHashed(String key) {
 		// Find the keys to the original hash key
 		int arrayIndexHash = Integer.parseInt(key) % arraySize;
+		
+		// Store the start index to detect a full loop
+		int startIndex = arrayIndexHash;
 
 		// Calculate the step distance
 		int stepDistance = 5 - (Integer.parseInt(key) % 5);
@@ -210,6 +213,11 @@ public class HashFunction2 {
 
 			// If we go back to the end of the array, go back to index 0
 			arrayIndexHash %= arraySize;
+			
+			// If we've looped back to the start index, the value is not in the array
+			if (arrayIndexHash == startIndex) {
+				break;
+			}
 		}
 
 		// Couldn't locate the key
