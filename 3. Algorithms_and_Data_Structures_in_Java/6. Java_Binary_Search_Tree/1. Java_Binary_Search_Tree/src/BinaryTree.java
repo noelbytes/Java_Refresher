@@ -61,6 +61,8 @@ Deleting 75
 
 */
 
+import java.util.Scanner;
+
 /**
  * A class representing a binary tree structure. It supports adding nodes,
  * performing in-order, pre-order, and post-order traversals, and searching for
@@ -302,7 +304,8 @@ public class BinaryTree {
 		// parent's left child slot, and then move the replaced node's right child into
 		// the replacements right child
 		// OR (alternate explanation)
-		// If the replacement is not the immediate right child of the node being removed.
+		// If the replacement is not the immediate right child of the node being
+		// removed.
 		if (replacement != replacedNode.rightChild) {
 			replacementParent.leftChild = replacement.rightChild; // Promote the replacement's right child.
 			replacement.rightChild = replacedNode.rightChild; // Link the removed node's right child.
@@ -317,10 +320,19 @@ public class BinaryTree {
 		// Adding nodes to the tree
 		theTree.addNode(50, "Boss");
 		theTree.addNode(25, "Vice President");
+		theTree.addNode(75, "Sales Manager");
 		theTree.addNode(15, "Office Manager");
 		theTree.addNode(30, "Secretary");
-		theTree.addNode(75, "Sales Manager");
-		theTree.addNode(85, "Salesman 1");
+		theTree.addNode(70, "Salesman 1");
+		theTree.addNode(85, "Salesman 2");
+		theTree.addNode(2, "Intern");
+		theTree.addNode(18, "HR Manager");
+		theTree.addNode(28, "Joint Secretary 1");
+		theTree.addNode(35, "Joint Secretary 2");
+		theTree.addNode(27, "Assistant Secretary");
+		theTree.addNode(29, "Clerk");
+		theTree.addNode(32, "Assistant Joint Secretary");
+		theTree.addNode(38, "Coordinator");
 
 		// Traversing the tree
 		System.out.println("In-order Traversal:");
@@ -338,9 +350,9 @@ public class BinaryTree {
 		System.out.println(theTree.findNode(30));
 		System.out.println("-------------------------------------------------------");
 
-		System.out.println("REMOVE KEY 25");
+		System.out.println("Enter the value that you'd like to delete : ");
 
-		theTree.remove(85);
+		theTree.remove(new Scanner(System.in).nextInt());
 
 		// Traversing the tree
 		System.out.println("In-order Traversal:");
