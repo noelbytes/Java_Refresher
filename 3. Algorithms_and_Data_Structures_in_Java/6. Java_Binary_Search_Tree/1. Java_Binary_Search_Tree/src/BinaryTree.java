@@ -358,7 +358,6 @@ public class BinaryTree {
 		System.out.println("In-order Traversal:");
 		theTree.inOrderTraverseTree(theTree.root);
 		System.out.println("-------------------------------------------------------");
-
 	}
 }
 
