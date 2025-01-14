@@ -87,8 +87,7 @@ public class Heap {
 		 * --> There is going to be a certain number of spaces, so we need to figure out how many indexes we are going to
 		 * have 
 		 * --> In a tree, we will have one element at the top, 2 elements in the
-		 * next row, followed by 4 in the next row, followed by 8 in the next row. 1, 2,
-		 * 4, 8 
+		 * next row, followed by 4 in the next row, followed by 8 in the next row. 1, 2, 4, 8 
 		 * 
 		 * --> Structure
 		 * 
