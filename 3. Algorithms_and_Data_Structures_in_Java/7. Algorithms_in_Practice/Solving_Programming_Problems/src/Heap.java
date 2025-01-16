@@ -96,13 +96,15 @@ public class Heap {
 		 * _1___1___1___1 
 		 * 1_1_1_1_1_1_1_1
 		 * 
-		 * 1st Row Indent - 7; Spaces - 0 (since we only have one number) 2nd Row Indent
-		 * - 3; Spaces - 7 3rd Row Indent - 1; Spaces - 3 4th Row Indent - 0; Spaces - 1
+		 * 1st Row Indent - 7; Spaces - 0 (since we only have one number) 
+		 * 2nd Row Indent- 3; Spaces - 7 
+		 * 3rd Row Indent - 1; Spaces - 3 
+		 * 4th Row Indent - 0; Spaces - 1
 		 * 
-		 * How are we going to model it? We need to calculate Indent i.e. figure out a
-		 * way to calculate 7, 3, 1, and 0 
-		 * --> The equation can be obtained from this website - https://www.wolframalpha.com/ --> Just type in the sequence 7, 3,
-		 * 1, 0 and search for it 
+		 * How are we going to model it? 
+		 * We need to calculate Indent i.e. figure out a way to calculate 7, 3, 1, and 0 
+		 * --> The equation can be obtained from this website - https://www.wolframalpha.com/ 
+		 * --> Just type in the sequence 7, 3, 1, 0 and search for it 
 		 * --> Under the possible sequence identification, look at the formula for the closed form. That will be our algorithm for
 		 * calculating and achieving this sequence. 
 		 * Indent: -2^-n * (2^n - 16) (n in this situation will start from 1) 
@@ -130,8 +132,9 @@ public class Heap {
 		 * _1___1___1___1 
 		 * 1_1_1_1_1_1_1_1
 		 * 
-		 * Indent Number Indent Number Space Number Indent Number Space Number Space
-		 * Number Space Number
+		 * Indent Number 
+		 * Indent Number Space Number 
+		 * Indent Number Space Number Space Number Space Number
 		 */
 
 		int spaces = 0;
@@ -141,12 +144,12 @@ public class Heap {
 		while (iterator <= rows) {
 			int indent = (int) Math.abs(Math.pow(2, -iterator) * (Math.pow(2, iterator) - 16));
 
-			// This will be the first index to print on every row
+			// This will be the first index of the array to print on every row
 			int indexToPrint = (int) (0.5 * (Math.pow(2, iterator) - 2));
 
 			int itemsPerRow = (int) Math.pow(2, iterator - 1);
 
-			// Calculate the maximum index to print
+			// Calculate the maximum index of the array that can be printed in that row
 			int maxIndexToPrintPerRow = indexToPrint + itemsPerRow;
 
 			for (int spaceCount = 0; spaceCount < indent; spaceCount++) {
@@ -188,5 +191,10 @@ class Data {
 
 	public Data(int key) {
 		this.key = key;
+	}
+	
+	@Override
+	public String toString() {
+		return key + "";
 	}
 }
