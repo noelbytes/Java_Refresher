@@ -226,7 +226,7 @@ public class Heap {
 		
 		for (int index = 0; index < rows; index++) {
 			// Generate all the values that will go into the indent array. 
-			// This is the formula for the sequence 0, 1, 3, 7.
+			// This is the formula for the sequence 0, 2, 6, 14.  (i.e. (0, 1, 3, 7) * 2)
 			// Here, we've flipped the indents to make the calculation more dynamic
 			indentArray[index] = (int) Math.abs((-2 + Math.pow(2, index + 1))); // Here, we're adding 1 to the index, since we need to start n from 1 based on the formula for indents.  
 																					 // Math.abs is added to make sure that we only get positive digits from the calculation
