@@ -279,7 +279,7 @@ public class Heap {
 		// Print out the array before it is sorted
 		System.out.println("Original array");
 		System.out.println(Arrays.toString(newHeap.theHeap));
-
+		
 		System.out.println();
 
 		newHeap.printTree(4);
