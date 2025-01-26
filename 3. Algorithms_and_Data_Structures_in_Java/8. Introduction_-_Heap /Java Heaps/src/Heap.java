@@ -254,6 +254,8 @@ public class Heap {
 		}
 
 		theHeap[index] = root;
+		System.out.println("Updated tree after the swap operations : ");
+		printTree(4);
 	}
 
 	/**
