@@ -79,6 +79,7 @@ public class Heap {
 	}
 
 	private Data pop() {
+
 		int tempItemsInArray = itemsInArray - 1;
 
 		// Used to show how data is moved during sorting
@@ -88,6 +89,8 @@ public class Heap {
 
 		Data root = theHeap[0];
 		theHeap[0] = theHeap[--itemsInArray];
+		
+		System.out.println(Arrays.toString(theHeap));
 		// Moving all the values that are greater than, in the bottom, upwards so that
 		// all the parents have children that have smaller items inside of them
 		heapTheArray(0); // Pass the root position of the array as a parameter
