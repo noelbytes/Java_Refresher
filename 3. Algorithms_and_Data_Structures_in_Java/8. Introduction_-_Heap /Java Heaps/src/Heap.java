@@ -277,6 +277,7 @@ public class Heap {
 	}
 
 	public static void main(String[] args) {
+		
 		Heap newHeap = new Heap(7);
 
 		newHeap.generateFilledArray(90);
