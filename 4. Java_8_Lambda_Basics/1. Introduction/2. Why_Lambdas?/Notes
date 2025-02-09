@@ -1,0 +1,6 @@
+Why Lambdas?
+---------------
+--> Enables functional programming : In addition to writing object oriented programs in Java, Lambdas enable us to write functional programs in Java
+--> Readable and Concise code : Lambdas eliminate some of the boilerplate code that you'll have to write.
+--> Easier-to-use APIs and libraries : Helps us to write better APIs and libraries which are easier to use.
+--> Enables support for parallel processing : Having suppport for parallel processing helps us to write better code that runs on multi-core processors. 
