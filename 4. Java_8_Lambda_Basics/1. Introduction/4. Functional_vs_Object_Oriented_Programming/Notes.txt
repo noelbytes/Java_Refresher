@@ -1,0 +1,5 @@
+Do we really need functional programming?
+------------------------------------------
+- Functional programming doesn't let you do anything new that you couldn't have done before. 
+- Functional programming lets you write better code, more readable code and more maintainable code
+- Functional programming is just another programming paradigm which lets you write code which is elegant in certain situations.
